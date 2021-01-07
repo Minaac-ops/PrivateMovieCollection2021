@@ -87,7 +87,7 @@ public class MainController implements Initializable {
     }
     @FXML
     public void clickAddCategory(ActionEvent event) throws IOException {
-        Parent MainParent = FXMLLoader.load(getClass().getResource("/sample/gui/View/addCategory.fxml"));
+        Parent MainParent = FXMLLoader.load(getClass().getResource("/sample/gui/View/addCatergory.fxml"));
         Scene MainScene = new Scene(MainParent);
         Stage addCategoryStage = (Stage)((Node) event.getSource()).getScene().getWindow();
         addCategoryStage.setScene(MainScene);

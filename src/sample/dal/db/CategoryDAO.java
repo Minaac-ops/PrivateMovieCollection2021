@@ -4,10 +4,7 @@ import com.microsoft.sqlserver.jdbc.SQLServerException;
 import sample.be.Category;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,5 +38,18 @@ public class CategoryDAO {
             }
         } return allCategories;
     }
+    public Category addCategory (String name) throws SQLServerException {
+        try (Connection con = databaseconnector.getConnection()) {
+            String sql = "INSERT INTO Category(Name)VALUES (?)";
+            PreparedStatement preparedStatement = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1,name);
+            preparedStatement.executeUpdate();
+            ResultSet rs = preparedStatement.getGeneratedKeys();
 
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
 }

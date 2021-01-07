@@ -8,8 +8,8 @@
 
 <AnchorPane prefHeight="408.0" prefWidth="293.0" style="-fx-background-color: #20120F;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.gui.controller.AddMovieController">
    <children>
-      <TextField fx:id="nameMovie" layoutX="14.0" layoutY="97.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #a6a0a0;" />
-      <Button layoutX="217.0" layoutY="362.0" mnemonicParsing="false" style="-fx-background-color: #20120F;" text="ADD" textFill="#f508e1">
+      <TextField fx:id="addMovieName" layoutX="14.0" layoutY="97.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #a6a0a0;" />
+      <Button fx:id="addNewMovie" layoutX="217.0" layoutY="362.0" mnemonicParsing="false" style="-fx-background-color: #20120F;" text="ADD" textFill="#f508e1">
          <font>
             <Font name="Bauhaus 93" size="20.0" />
          </font>
@@ -29,24 +29,24 @@
             <Font name="Bauhaus 93" size="14.0" />
          </font>
       </Text>
-      <TextField fx:id="movieYear" layoutX="17.0" layoutY="156.0" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #a6a0a0;" />
+      <TextField fx:id="addYear" layoutX="17.0" layoutY="156.0" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #a6a0a0;" />
       <Text fill="#0aebe0" layoutX="17.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duration">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font>
       </Text>
-      <TextField fx:id="movieDuration" layoutX="17.0" layoutY="210.0" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #a6a0a0;" />
+      <TextField fx:id="addDuration" layoutX="17.0" layoutY="210.0" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #a6a0a0;" />
       <Text fill="#0aebe0" layoutX="17.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font>
       </Text>
-      <TextField fx:id="movieRating" layoutX="17.0" layoutY="270.0" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #a6a0a0;" />
+      <TextField fx:id="addRating" layoutX="17.0" layoutY="270.0" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #a6a0a0;" />
       <Text fill="#0aebe0" layoutX="19.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Path">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font>
       </Text>
-      <TextField fx:id="moviePath" layoutX="17.0" layoutY="330.0" prefHeight="25.0" prefWidth="257.0" style="-fx-background-color: #a6a0a0;" />
+      <TextField fx:id="addPath" layoutX="17.0" layoutY="330.0" prefHeight="25.0" prefWidth="257.0" style="-fx-background-color: #a6a0a0;" />
    </children>
 </AnchorPane>
