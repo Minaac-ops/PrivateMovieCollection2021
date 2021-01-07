@@ -75,5 +75,5 @@ public interface dalInterface {
      * Gets a list of all movies in choosen category from the database.
      * @return
      */
-    List<Movie> getCatMovies(int id) throws SQLException;
+    List<Movie> getCatMovies(int catMovId) throws SQLException;
 }

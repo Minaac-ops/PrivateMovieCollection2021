@@ -66,10 +66,10 @@ public interface logicfacade {
 
     /**
      * Gets a list of all songs in a spesific category orderes by id.
-     * @param id
+     * @param catMovId
      * @return
      */
-    List<Movie> getAllCatMovie(int id);
+    List<Movie> getAllCatMovie(int catMovId) throws SQLException;
 
 
 }
