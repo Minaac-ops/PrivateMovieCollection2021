@@ -8,11 +8,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import sample.Main;
 import sample.be.Category;
 import sample.be.Movie;
 import sample.gui.Model.CategoryModel;
@@ -83,9 +85,15 @@ public class MainController implements Initializable {
         addMovieStage.setScene(MainScene);
         addMovieStage.show();
     }
-
     @FXML
-    public void handleAddCat(ActionEvent event) {
+    public void clickAddCategory(ActionEvent event) throws IOException {
+        Parent MainParent = FXMLLoader.load(getClass().getResource("/sample/gui/View/addCategory.fxml"));
+        Scene MainScene = new Scene(MainParent);
+        Stage addCategoryStage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        addCategoryStage.setScene(MainScene);
+        addCategoryStage.show();
 
     }
+
+
 }

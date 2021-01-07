@@ -41,7 +41,7 @@
             <Font name="Bauhaus 93" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="14.0" layoutY="328.0" mnemonicParsing="false" onAction="#handleAddCat" style="-fx-background-color: #20120F;" text="ADD CATEGORY" textFill="#0bee34">
+      <Button layoutX="14.0" layoutY="328.0" mnemonicParsing="false" onAction="#clickAddCategory" style="-fx-background-color: #20120F;" text="ADD CATEGORY" textFill="#0bee34">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font>

@@ -27,7 +27,6 @@ public class CatMovDAO {
                 Movie movie = new Movie(rs.getInt("MovieId"), rs.getString("Name"), rs.getInt("Year"), rs.getString("Path"), rs.getInt("Duration"), rs.getFloat("Rating"), rs.getInt("LastView"));
                 movie.setId(rs.getInt("id"));
                 allCatmovies.add(movie);
-
             }
         }
         return allCatmovies;

@@ -1,9 +1,10 @@
-package sample.gui.Controller;
+package sample.gui.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 
 import java.awt.*;
 import java.net.URL;
@@ -29,4 +30,6 @@ public class AddMovieController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
-}
+
+    }
+
