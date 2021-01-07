@@ -1,32 +1,41 @@
 package sample.gui.controller;
 
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextInputDialog;
+import sample.gui.Model.MovieModel;
 
+import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AddMovieController implements Initializable {
 
     @FXML
-    private TextField addMovieName;
+    public TextField nameMovie;
     @FXML
-    private TextField addYear;
+    public TextField movieYear;
     @FXML
-    private TextField addDuration;
+    public TextField movieDuration;
     @FXML
-    private TextField addRating;
+    public TextField movieRating;
     @FXML
-    private TextField addPath;
-    @FXML
-    private Button addNewMovie;
+    public TextField moviePath;
 
+
+    private MovieModel movieModel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            movieModel = new MovieModel();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 
     }
 
