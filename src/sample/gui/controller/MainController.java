@@ -70,10 +70,10 @@ public class MainController implements Initializable {
     @FXML
     private void handleGetCatMovies(MouseEvent event) {
         lstCatMov.getItems().clear();
-        List<Movie> catMovList = lstCat.getSelectionModel().getSelectedItem().getMovieList();
-        for (int x = catMovList.size() -1; x >=0; x--) {
-            catMovList.get(x).setId(catMovList.size() - x);
-            lstCatMov.getItems().add(catMovList.get(10));
+        List<Movie> catMovList = lstCat.getSelectionModel().getSelectedItem().getCatMovieList();
+        for (int x = catMovList.size() -1; x >= 0; x--) {
+            catMovList.get(x).setCatMovId(catMovList.size() - x);
+            lstCatMov.getItems().add(catMovList.get(x));
         }
     }
 

@@ -6,7 +6,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 

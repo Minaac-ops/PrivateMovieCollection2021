@@ -24,7 +24,4 @@ public class MovieModel {
     public ObservableList<Movie> getAllMovies() {
         return allMovies;
     }
-
-
-
 }

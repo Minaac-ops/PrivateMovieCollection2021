@@ -2,6 +2,7 @@ package sample.be;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.List;
 import java.util.Properties;
 
 public class Movie {
@@ -12,6 +13,7 @@ public class Movie {
 
     private static final String PROP_FILE = "data/config.properties";
 
+    private List<Movie> catMovieList; //List of movies in a specific category.
     private int id;
     private String name;
     private int year;
@@ -19,6 +21,7 @@ public class Movie {
     private int duration;
     private double rating;
     private int lastView;
+    private int catMovId;
 
     public Movie(int id, String name, int year, String path, int duration, double rating, int lastView) {
         this.id = id;
@@ -35,8 +38,13 @@ public class Movie {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getCatMovId()
+    {
+        return catMovId;
+    }
+
+    public void setCatMovId(int catMovId) {
+        this.catMovId = catMovId;
     }
 
     public String getName()
@@ -98,5 +106,13 @@ public class Movie {
     public int getLastView()
     {
         return lastView;
+    }
+
+    public List<Movie> getCatMovieList() {
+        return catMovieList;
+    }
+
+    public void setCatMovieList(List<Movie> catMovieList) {
+        this.catMovieList = catMovieList;
     }
 }
