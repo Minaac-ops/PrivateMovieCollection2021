@@ -1,0 +1,4 @@
+server = 10.176.111.31
+database = Private Movie Collection
+user = CSe20A_1
+password = CSe20A_1

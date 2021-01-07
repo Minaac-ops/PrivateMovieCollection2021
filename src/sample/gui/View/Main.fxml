@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #20120F;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.gui.controller.MainController">
+
+   <children>
+      <Text fill="#f508e1" layoutX="200.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MOVIE">
+         <font>
+            <Font name="Bauhaus 93" size="64.0" />
+         </font>
+      </Text>
+      <TableView fx:id="lstCat" layoutX="14.0" layoutY="14.0" onMouseClicked="#handleGetCatMovies" prefHeight="297.0" prefWidth="165.0" style="-fx-background-image: #20120F;">
+        <columns>
+          <TableColumn fx:id="catNameColumn" prefWidth="165.33330821990967" style="-fx-background-color: #a6a0a0;" text="GENRE" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <TableView fx:id="lstCatMov" layoutX="200.0" layoutY="111.0" prefHeight="155.0" prefWidth="371.0">
+        <columns>
+          <TableColumn fx:id="nameSongColumn" prefWidth="210.00001525878906" style="-fx-background-color: #a6a0a0;" text="Name" />
+          <TableColumn fx:id="durationcolumn" prefWidth="86.6666259765625" style="-fx-background-color: #a6a0a0;" text="Duration" />
+            <TableColumn fx:id="ratingcolumn" prefWidth="73.33334350585938" style="-fx-background-color: #a6a0a0;" text="Rating" />
+        </columns>
+      </TableView>
+      <Button layoutX="184.0" layoutY="275.0" mnemonicParsing="false" onAction="#clickAddMovie" prefHeight="28.0" prefWidth="109.0" style="-fx-background-color: #20120F;" text="ADD MOVIE" textAlignment="RIGHT" textFill="#0bee34">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="191.0" layoutY="300.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: #20120F;" text="REMOVE MOVIE" textFill="#0bee34">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="14.0" layoutY="328.0" mnemonicParsing="false" onAction="#handleAddCat" style="-fx-background-color: #20120F;" text="ADD CATEGORY" textFill="#0bee34">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="14.0" layoutY="356.0" mnemonicParsing="false" style="-fx-background-color: #20120F;" text="REMOVE CATEGORY" textFill="#0bee34">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="473.0" layoutY="275.0" mnemonicParsing="false" style="-fx-background-color: #a6a0a0;" text="EDIT RATING" textFill="#f508e1">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="548.0" layoutY="66.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="29.0" style="-fx-background-color: #a6a0a0;" text="🔍" />
+      <TextField layoutX="428.0" layoutY="66.0" prefHeight="25.0" prefWidth="109.0" />
+   </children>
+</AnchorPane>
