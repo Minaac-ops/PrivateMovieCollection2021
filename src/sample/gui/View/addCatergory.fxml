@@ -6,15 +6,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="138.0" prefWidth="295.0" style="-fx-background-color: #20120F;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.gui.View.AddCatergory">
+<AnchorPane prefHeight="138.0" prefWidth="295.0" style="-fx-background-color: #20120F;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.gui.controller.AddCategoryController">
    <children>
-      <Button layoutX="219.0" layoutY="54.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" style="-fx-background-color: #20120F;" text="ADD" textFill="#f508e1">
+      <Button layoutX="219.0" layoutY="54.0" mnemonicParsing="false" onAction="#handleAddCatbtn" prefHeight="25.0" prefWidth="62.0" style="-fx-background-color: #20120F;" text="ADD" textFill="#f508e1">
          <font>
             <Font name="Bauhaus 93" size="18.0" />
          </font>
       </Button>
-      <TextField layoutX="22.0" layoutY="57.0" prefHeight="25.0" prefWidth="183.0" style="-fx-background-color: #a6a0a0;" />
+      <TextField fx:id="txtName" layoutX="22.0" layoutY="57.0" prefHeight="25.0" prefWidth="183.0" style="-fx-background-color: #a6a0a0;" />
       <Text fill="#0bee34" layoutX="22.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NEW CATEGORY">
          <font>
             <Font name="Bauhaus 93" size="22.0" />

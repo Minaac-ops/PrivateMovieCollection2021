@@ -4,6 +4,8 @@ import com.microsoft.sqlserver.jdbc.SQLServerException;
 import sample.be.Category;
 import sample.be.Movie;
 import sample.dal.DalController;
+import sample.dal.db.CategoryDAO;
+import sample.gui.controller.AddCategoryController;
 
 import java.io.IOException;
 import java.sql.SQLException;

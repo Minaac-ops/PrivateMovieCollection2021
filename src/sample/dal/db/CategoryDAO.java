@@ -41,4 +41,5 @@ public class CategoryDAO {
             }
         } return allCategories;
     }
+
 }

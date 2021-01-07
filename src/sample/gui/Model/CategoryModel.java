@@ -25,4 +25,8 @@ public class CategoryModel {
         return categories;
     }
 
+    public void addCategory (String name){
+
+    }
+
 }
