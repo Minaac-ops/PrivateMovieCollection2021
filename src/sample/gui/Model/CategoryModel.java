@@ -4,7 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import sample.be.Category;
 import sample.bll.PMCManager;
-import sample.bll.logicfacade;
+import sample.bll.Logicfacade;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class CategoryModel {
 
     private ObservableList<Category> categories;
-    private logicfacade logicfacade;
+    private Logicfacade logicfacade;
 
     public CategoryModel() throws IOException, SQLException {
         categories = FXCollections.observableArrayList();

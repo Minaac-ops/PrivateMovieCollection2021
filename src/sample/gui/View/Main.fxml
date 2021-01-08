@@ -29,7 +29,7 @@
           <TableColumn fx:id="nameSongColumn" prefWidth="96.800048828125" style="-fx-background-color: #a6a0a0;" text="Name" />
           <TableColumn fx:id="durationcolumn" prefWidth="102.39996337890625" style="-fx-background-color: #a6a0a0;" text="Duration" />
             <TableColumn fx:id="ratingcolumn" prefWidth="73.60003662109375" style="-fx-background-color: #a6a0a0;" text="Rating" />
-            <TableColumn fx:id="idOnSongPlay" prefWidth="97.5999755859375" text="Number" />
+            <TableColumn prefWidth="97.5999755859375" text="Number" />
         </columns>
       </TableView>
       <Button layoutX="184.0" layoutY="275.0" mnemonicParsing="false" onAction="#clickAddMovie" prefHeight="28.0" prefWidth="109.0" style="-fx-background-color: #20120F;" text="ADD MOVIE" textAlignment="RIGHT" textFill="#0bee34">
@@ -57,7 +57,7 @@
             <Font name="Bauhaus 93" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="548.0" layoutY="66.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="29.0" style="-fx-background-color: #a6a0a0;" text="🔍" />
-      <TextField layoutX="428.0" layoutY="66.0" prefHeight="25.0" prefWidth="109.0" />
+      <Button layoutX="548.0" layoutY="66.0" mnemonicParsing="false" onAction="#handleSearchMovie" prefHeight="19.0" prefWidth="29.0" style="-fx-background-color: #a6a0a0;" text="🔍" />
+      <TextField fx:id="searchMovieTxt" layoutX="428.0" layoutY="66.0" prefHeight="25.0" prefWidth="109.0" />
    </children>
 </AnchorPane>

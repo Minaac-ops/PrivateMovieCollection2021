@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -27,26 +28,27 @@ import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
 
-    private final MovieModel movieModel;
+    public final MovieModel movieModel;
     private ObservableList<Movie> observableListMovie;
+    private ObservableList<Movie> observableListCatMov;
 
-    private CategoryModel categoryModel;
+    public final CategoryModel categoryModel;
     private ObservableList<Category> observableListCategory;
 
     @FXML
-    private TableView<Category> lstCat;
+    public TableView<Category> lstCat;
     @FXML
-    private TableColumn<Category, String> catNameColumn;
+    public TableColumn<Category, String> catNameColumn;
     @FXML
-    private TableView<Movie> lstCatMov;
+    public TableView<Movie> lstCatMov;
     @FXML
-    private TableColumn<Movie, String> nameSongColumn;
+    public TableColumn<Movie, String> nameSongColumn;
     @FXML
-    private TableColumn<Movie, Integer> durationcolumn;
+    public TableColumn<Movie, Integer> durationcolumn;
     @FXML
-    private TableColumn<Movie, Float> ratingcolumn;
+    public TableColumn<Movie, Float> ratingcolumn;
     @FXML
-    private TableColumn<Movie, Integer> idOnSongPlay;
+    public TextField searchMovieTxt;
 
     public MainController() throws IOException, SQLException {
         categoryModel = new CategoryModel();
@@ -57,19 +59,19 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         observableListCategory = categoryModel.getCategories();
+        observableListMovie = movieModel.getAllMovies();
 
-        durationcolumn.setCellValueFactory(new PropertyValueFactory<>("duration"));
-        nameSongColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        ratingcolumn.setCellValueFactory(new PropertyValueFactory<>("rating"));
+        lstCatMov.setItems(observableListMovie);
+        durationcolumn.setCellValueFactory(new PropertyValueFactory<>("Duration"));
+        nameSongColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        ratingcolumn.setCellValueFactory(new PropertyValueFactory<>("Rating"));
 
         lstCat.setItems(observableListCategory);
         catNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        idOnSongPlay.setCellValueFactory(new PropertyValueFactory<>("catMovId"));
     }
 
     @FXML
-    private void handleGetCatMovies(MouseEvent event) {
-        lstCatMov.getItems().clear();
+    public void handleGetCatMovies(MouseEvent event) {
         List<Movie> CatMovList = lstCat.getSelectionModel().getSelectedItem().getMovieList();
         lstCatMov.setItems((ObservableList<Movie>) CatMovList);
     }
@@ -89,5 +91,16 @@ public class MainController implements Initializable {
         Stage addCategoryStage = (Stage)((Node) event.getSource()).getScene().getWindow();
         addCategoryStage.setScene(MainScene);
         addCategoryStage.show();
+    }
+
+    @FXML
+    public void handleSearchMovie(ActionEvent event) {
+        if (searchMovieTxt.getText() == null || searchMovieTxt.getText().length() <= 0 ) {
+            lstCatMov.setItems(movieModel.getAllMovies());
+        }
+        else {
+            ObservableList<Movie> foundMovie = movieModel.search(movieModel.getAllMovies(),searchMovieTxt.getText());
+            lstCatMov.setItems(foundMovie);
+        }
     }
 }

@@ -1,12 +1,13 @@
 package sample.bll;
 
+import javafx.collections.ObservableList;
 import sample.be.Category;
 import sample.be.Movie;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public interface logicfacade {
+public interface Logicfacade {
 
     /**
      * Gets a list of all songs.
@@ -59,14 +60,14 @@ public interface logicfacade {
 
     /**
      * Searches through the list of all movie titles and categories.
-     * @param query
+     * @param searchfilter, query
      * @return
      */
-    List<Movie> searchMovies(String query);
+    ObservableList<Movie> search(ObservableList<Movie> searchfilter, String query);
 
     /**
      * Gets a list of all songs in a spesific category orderes by id.
-     * @param catMovId
+     * @param id
      * @return
      */
     List<Movie> getAllCatMovies(int id) throws SQLException;
