@@ -28,16 +28,11 @@ public class MyDBConnector {
         Properties databaseProperties = new Properties();
         databaseProperties.load(new FileInputStream(new File(PROP_FILE)));
 
-        String server = databaseProperties.getProperty("server");
-        String database = databaseProperties.getProperty("database");
-        String user = databaseProperties.getProperty("user");
-        String password = databaseProperties.getProperty("password");
-
-        ds = new SQLServerDataSource();
-        ds.setServerName(server);
-        ds.setDatabaseName(database);
-        ds.setUser(user);
-        ds.setPassword(password);
+        this.ds = new SQLServerDataSource();
+        this.ds.setServerName(databaseProperties.getProperty("server"));
+        this.ds.setDatabaseName(databaseProperties.getProperty("database"));
+        this.ds.setUser(databaseProperties.getProperty("user"));
+        this.ds.setPassword(databaseProperties.getProperty("password"));
     }
 
     /**
