@@ -1,5 +1,6 @@
 package sample.bll;
 
+import javafx.collections.ObservableList;
 import sample.be.Category;
 import sample.be.Movie;
 
@@ -59,10 +60,12 @@ public interface logicfacade {
 
     /**
      * Searches through the list of all movie titles and categories.
-     * @param query
+     *
+     * @param searchfilter, query
      * @return
      */
-    List<Movie> searchMovies(String query);
+    ObservableList<Movie> search(ObservableList<Movie> searchfilter,String query);
+
 
     /**
      * Gets a list of all songs in a spesific category orderes by id.

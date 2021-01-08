@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -29,11 +30,14 @@ import java.util.ResourceBundle;
 public class MainController implements Initializable {
 
     private final MovieModel movieModel;
+
     private ObservableList<Movie> observableListMovie;
 
     private CategoryModel categoryModel;
     private ObservableList<Category> categoryObservableList;
 
+    @FXML
+    public TextField searchMovieTxt;
     @FXML
     private TableView<Category> lstCat;
     @FXML
@@ -45,7 +49,7 @@ public class MainController implements Initializable {
     @FXML
     private TableColumn<Movie, Integer> durationcolumn;
     @FXML
-    TableColumn<Movie, Float> ratingcolumn;
+    private TableColumn<Movie, Float> ratingcolumn;
 
     public MainController() throws IOException, SQLException {
         categoryModel = new CategoryModel();
@@ -78,6 +82,17 @@ public class MainController implements Initializable {
     }
 
     @FXML
+    public void handleSearchMovie(ActionEvent event) {
+        if (searchMovieTxt.getText() == null || searchMovieTxt.getText().length() <= 0 ) {
+            lstCatMov.setItems(movieModel.getAllMovies());
+        }
+        else {
+            ObservableList<Movie> foundMovie = movieModel.search(movieModel.getAllMovies(),searchMovieTxt.getText());
+            lstCatMov.setItems(foundMovie);
+        }
+    }
+
+    @FXML
     public void clickAddMovie(ActionEvent event) throws IOException {
         Parent MainParent = FXMLLoader.load(getClass().getResource("/sample/gui/View/AddMovie.fxml"));
         Scene MainScene = new Scene(MainParent);
@@ -93,6 +108,14 @@ public class MainController implements Initializable {
         addCategoryStage.setScene(MainScene);
         addCategoryStage.show();
 
+    }
+    @FXML
+    public void clickEditRating(ActionEvent event) throws IOException {
+        Parent MainParent = FXMLLoader.load(getClass().getResource("/sample/gui/View/editRating.fxml"));
+        Scene MainScene = new Scene(MainParent);
+        Stage editRatingStage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        editRatingStage.setScene(MainScene);
+        editRatingStage.show();
     }
 
 

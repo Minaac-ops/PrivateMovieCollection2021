@@ -9,6 +9,7 @@ import sample.bll.logicfacade;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 public class MovieModel {
 
@@ -23,5 +24,9 @@ public class MovieModel {
 
     public ObservableList<Movie> getAllMovies() {
         return allMovies;
+    }
+
+    public ObservableList<Movie> search(List<Movie> searchfilter, String query) {
+        return logicfacade.search((ObservableList<Movie>)searchfilter, query);
     }
 }

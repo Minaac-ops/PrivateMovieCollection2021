@@ -1,8 +1,11 @@
 package sample.bll;
 
 import com.microsoft.sqlserver.jdbc.SQLServerException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import sample.be.Category;
 import sample.be.Movie;
+import sample.bll.util.MovieSearcher;
 import sample.dal.DalController;
 import sample.dal.db.CategoryDAO;
 import sample.gui.controller.AddCategoryController;
@@ -14,6 +17,7 @@ import java.util.List;
 public class PMCManager implements logicfacade {
 
     private final DalController dalController;
+    private MovieSearcher movieSearcher;
 
     public PMCManager() throws IOException, SQLServerException {
         dalController = new DalController();
@@ -103,12 +107,14 @@ public class PMCManager implements logicfacade {
      * @return
      */
     @Override
-    public List<Movie> searchMovies(String query) {
-        return null;
+    public ObservableList<Movie> search(ObservableList<Movie> searchfilter, String query) {
+        ObservableList<Movie> foundMovies = FXCollections.observableArrayList();
+        foundMovies.addAll(movieSearcher.search(searchfilter, query));
+        return foundMovies;
     }
 
     /**
-     * Gets a list of all songs in a spesific category orderes by id.
+     * Gets a list of all songs in a specific category ordered by id.
      *
      * @param id
      * @return

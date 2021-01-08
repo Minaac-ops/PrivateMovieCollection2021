@@ -51,12 +51,12 @@
             <Font name="Bauhaus 93" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="473.0" layoutY="275.0" mnemonicParsing="false" style="-fx-background-color: #a6a0a0;" text="EDIT RATING" textFill="#f508e1">
+      <Button layoutX="473.0" layoutY="275.0" mnemonicParsing="false" onAction="#clickEditRating" style="-fx-background-color: #a6a0a0;" text="EDIT RATING" textFill="#f508e1">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="548.0" layoutY="66.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="29.0" style="-fx-background-color: #a6a0a0;" text="🔍" />
-      <TextField layoutX="428.0" layoutY="66.0" prefHeight="25.0" prefWidth="109.0" />
+      <Button layoutX="548.0" layoutY="66.0" mnemonicParsing="false" onAction="#handleSearchMovie" prefHeight="19.0" prefWidth="29.0" style="-fx-background-color: #a6a0a0;" text="🔍" />
+      <TextField fx:id="searchMovieTxt" layoutX="428.0" layoutY="66.0" prefHeight="25.0" prefWidth="109.0" />
    </children>
 </AnchorPane>
