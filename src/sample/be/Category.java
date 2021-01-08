@@ -7,7 +7,7 @@ public class Category {
     /**
      * This class is for getter and setter methods for instances of the Category class.
      */
-    private List<Movie> catMovieList;
+    private List<Movie> movieList;
     private int id;
     private String name;
 
@@ -32,11 +32,11 @@ public class Category {
         this.name = name;
     }
 
-    public List<Movie> getCatMovieList() {
-        return catMovieList;
+    public List<Movie> getMovieList() {
+        return movieList;
     }
 
-    public void setCatMovieList(List<Movie> catMovieList) {
-        this.catMovieList = catMovieList;
+    public void movieList(List<Movie> movieList) {
+        this.movieList = movieList;
     }
 }

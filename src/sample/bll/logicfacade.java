@@ -69,7 +69,7 @@ public interface logicfacade {
      * @param catMovId
      * @return
      */
-    List<Movie> getAllCatMovie(int catMovId) throws SQLException;
+    List<Movie> getAllCatMovies(int id) throws SQLException;
 
 
 }

@@ -4,6 +4,7 @@ import sample.be.Category;
 import sample.be.Movie;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public interface dalInterface {

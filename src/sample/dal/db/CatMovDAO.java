@@ -16,8 +16,8 @@ public class CatMovDAO {
         connectionPool = JDBCConnectionPool.getInstance();
     }
 
-    public List<Movie> getAllCatmovie(int catMovId) throws SQLException {
-        List<Movie> allCatmovies = new ArrayList<>();
+    public List<Movie> getAllCatmovies(int catMovId) throws SQLException {
+        List<Movie> catMovieList = new ArrayList<>();
         try (Connection con = connectionPool.checkOut()) {
             String query = "SELECT * FROM CatMovie INNER JOIN Movie ON CatMovie.MovieId = Movie.MovieId WHERE CatMovie.CategoryId = ?;";
             PreparedStatement preparedStatement = con.prepareStatement(query);
@@ -26,9 +26,9 @@ public class CatMovDAO {
             while (rs.next()) {
                 Movie movie = new Movie(rs.getInt("MovieId"), rs.getString("Name"), rs.getInt("Year"), rs.getString("Path"), rs.getInt("Duration"), rs.getFloat("Rating"), rs.getInt("LastView"));
                 movie.setCatMovId(rs.getInt("id"));
-                allCatmovies.add(movie);
+                catMovieList.add(movie);
             }
         }
-        return allCatmovies;
+        return catMovieList;
     }
 }

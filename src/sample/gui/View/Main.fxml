@@ -26,9 +26,10 @@
       </TableView>
       <TableView fx:id="lstCatMov" layoutX="200.0" layoutY="111.0" prefHeight="155.0" prefWidth="371.0">
         <columns>
-          <TableColumn fx:id="nameSongColumn" prefWidth="210.00001525878906" style="-fx-background-color: #a6a0a0;" text="Name" />
-          <TableColumn fx:id="durationcolumn" prefWidth="86.6666259765625" style="-fx-background-color: #a6a0a0;" text="Duration" />
-            <TableColumn fx:id="ratingcolumn" prefWidth="73.33334350585938" style="-fx-background-color: #a6a0a0;" text="Rating" />
+          <TableColumn fx:id="nameSongColumn" prefWidth="96.800048828125" style="-fx-background-color: #a6a0a0;" text="Name" />
+          <TableColumn fx:id="durationcolumn" prefWidth="102.39996337890625" style="-fx-background-color: #a6a0a0;" text="Duration" />
+            <TableColumn fx:id="ratingcolumn" prefWidth="73.60003662109375" style="-fx-background-color: #a6a0a0;" text="Rating" />
+            <TableColumn fx:id="idOnSongPlay" prefWidth="97.5999755859375" text="Number" />
         </columns>
       </TableView>
       <Button layoutX="184.0" layoutY="275.0" mnemonicParsing="false" onAction="#clickAddMovie" prefHeight="28.0" prefWidth="109.0" style="-fx-background-color: #20120F;" text="ADD MOVIE" textAlignment="RIGHT" textFill="#0bee34">

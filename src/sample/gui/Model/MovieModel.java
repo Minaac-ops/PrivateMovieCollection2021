@@ -1,11 +1,9 @@
 package sample.gui.Model;
 
-import com.microsoft.sqlserver.jdbc.SQLServerException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import sample.be.Movie;
 import sample.bll.PMCManager;
-import sample.bll.logicfacade;
 
 import java.io.IOException;
 import java.sql.SQLException;
