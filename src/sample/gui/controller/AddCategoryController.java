@@ -25,10 +25,19 @@ public class AddCategoryController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            categoryModel = new CategoryModel();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 
     }
 
     public void handleAddCatbtn(ActionEvent actionEvent) {
+        String name = txtName.getText().trim();
+        categoryModel.addCategory(name);
 
     }
 }

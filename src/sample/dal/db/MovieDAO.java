@@ -4,10 +4,7 @@ import com.microsoft.sqlserver.jdbc.SQLServerException;
 import sample.be.Movie;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,6 +38,32 @@ public class MovieDAO
         } return allMovies;
 
         }
+
+        public  Movie addMovie (String name, int year, String path,int duration, float rating, int lastView) {
+            String sql = "INSERT INTO Movie (Name, Year, Duration, Rating, Path, LastView) VALUES (?,?,?,?,?,?);";
+            try (Connection con = connectionPool.checkOut();
+                 PreparedStatement st = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+                st.setString(1, name);
+                st.setInt(2, year);
+                st.setInt(3, duration);
+                st.setFloat(4, rating);
+                st.setString(5, path);
+                st.executeUpdate();
+                ResultSet rs = st.getGeneratedKeys();
+                int id = 0;
+
+                if (rs.next()) {
+                    id = rs.getInt(0);
+                }
+                Movie movie = new Movie(id, name, year, path, duration, rating, lastView);
+                return movie;
+
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            return null;
+        }
+
     }
 
 
