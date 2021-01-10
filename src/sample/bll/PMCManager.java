@@ -44,7 +44,7 @@ public class PMCManager implements Logicfacade {
      */
     @Override
     public Movie addMovie(String name, int year, int duration, float rating, String filelink) {
-        return null;
+        return dalController.addMovie(name, year, duration, filelink);
     }
 
     /**
