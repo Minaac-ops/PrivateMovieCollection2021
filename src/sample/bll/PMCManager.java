@@ -36,7 +36,7 @@ public class PMCManager implements Logicfacade {
      * Adds a new movie.
      *
      * @param name     The name of the movie.
-     * @param year     The releaseyear.
+     * @param year     The release year.
      * @param duration The duration in minutes.
      * @param rating   The rating on the movie.
      * @param filelink The link to the mp4 file.
@@ -113,7 +113,7 @@ public class PMCManager implements Logicfacade {
     }
 
     /**
-     * Gets a list of all songs in a spesific category orderes by id.
+     * Gets a list of all Movie in a specific category ordered by id.
      *
      * @param id
      * @return

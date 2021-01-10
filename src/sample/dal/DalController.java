@@ -47,7 +47,7 @@ public class DalController implements dalInterface {
     /**
      * Gets a list of all categories from the database.
      *
-     * @return The list of all Movies.
+     * @return The list of all Categories.
      */
     @Override
     public List<Category> getCategories() throws SQLException {
