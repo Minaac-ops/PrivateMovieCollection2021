@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="138.0" prefWidth="295.0" style="-fx-background-color: #20120F;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.gui.controller.AddCategoryController">
    <children>
-      <Button layoutX="219.0" layoutY="54.0" mnemonicParsing="false" onAction="#handleAddCatbtn" prefHeight="25.0" prefWidth="62.0" style="-fx-background-color: #20120F;" text="ADD" textFill="#f508e1">
+      <Button layoutX="144.0" layoutY="92.0" mnemonicParsing="false" onAction="#handleAddCatbtn" prefHeight="25.0" prefWidth="62.0" style="-fx-background-color: #20120F;" text="ADD" textFill="#f508e1">
          <font>
             <Font name="Bauhaus 93" size="18.0" />
          </font>
@@ -19,5 +19,10 @@
             <Font name="Bauhaus 93" size="22.0" />
          </font>
       </Text>
+      <Button layoutX="206.0" layoutY="92.0" mnemonicParsing="false" style="-fx-background-color: #20120F;" text="CANCEL" textFill="#f508e1">
+         <font>
+            <Font name="Bauhaus 93" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

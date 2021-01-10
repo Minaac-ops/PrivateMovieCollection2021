@@ -6,19 +6,23 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="138.0" prefWidth="295.0" style="-fx-background-color: #20120F;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.gui.View.EditRating">
    <children>
-      <TextField layoutX="24.0" layoutY="57.0" prefHeight="25.0" prefWidth="183.0" style="-fx-background-color: #a6a0a0;" />
-      <Button layoutX="219.0" layoutY="53.0" mnemonicParsing="false" style="-fx-background-color: #20120F;" text="EDIT" textFill="#f508e1">
+      <TextField layoutX="24.0" layoutY="56.0" prefHeight="25.0" prefWidth="183.0" style="-fx-background-color: #a6a0a0;" />
+      <Button layoutX="155.0" layoutY="96.0" mnemonicParsing="false" style="-fx-background-color: #20120F;" text="EDIT" textFill="#f508e1">
          <font>
             <Font name="Bauhaus 93" size="18.0" />
          </font>
       </Button>
-      <Text fill="#0bee34" layoutX="24.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EDIT RATING">
+      <Text fill="#0bee34" layoutX="24.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EDIT RATING">
          <font>
             <Font name="Bauhaus 93" size="22.0" />
          </font>
       </Text>
+      <Button layoutX="209.0" layoutY="96.0" mnemonicParsing="false" style="-fx-background-color: #20120F;" text="CANCEL" textFill="#f508e1">
+         <font>
+            <Font name="Bauhaus 93" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
