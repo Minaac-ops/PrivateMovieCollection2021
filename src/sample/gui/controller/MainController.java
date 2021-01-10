@@ -94,6 +94,15 @@ public class MainController implements Initializable {
     }
 
     @FXML
+    public void handleEditRating(ActionEvent event) throws IOException {
+        Parent MainParent = FXMLLoader.load(getClass().getResource("/sample/gui/View/editRating.fxml"));
+        Scene Mainscene = new Scene(MainParent);
+        Stage editRatingStage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        editRatingStage.setScene(Mainscene);
+        editRatingStage.show();
+    }
+
+    @FXML
     public void handleSearchMovie(ActionEvent event) {
         if (searchMovieTxt.getText() == null || searchMovieTxt.getText().length() <= 0 ) {
             lstCatMov.setItems(movieModel.getAllMovies());

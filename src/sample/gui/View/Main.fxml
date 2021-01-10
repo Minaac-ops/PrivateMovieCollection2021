@@ -51,7 +51,7 @@
             <Font name="Bauhaus 93" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="496.0" layoutY="390.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="127.0" style="-fx-background-color: #a6a0a0;" text="EDIT RATING" textFill="#f508e1">
+      <Button layoutX="496.0" layoutY="390.0" mnemonicParsing="false" onAction="#handleEditRating" prefHeight="42.0" prefWidth="127.0" style="-fx-background-color: #a6a0a0;" text="EDIT RATING" textFill="#f508e1">
          <font>
             <Font name="Bauhaus 93" size="18.0" />
          </font>

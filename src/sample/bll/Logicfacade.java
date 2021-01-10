@@ -35,9 +35,8 @@ public interface Logicfacade {
     /**
      * Lets you edit or add a rating.
      * @param movie The movie that you want to add a new rating.
-     * @return The movie with the new rating.
      */
-    Movie editRating(Movie movie);
+    void editRating(Movie movie) throws SQLException;
 
     /**
      * Adds a category.

@@ -60,12 +60,11 @@ public class PMCManager implements Logicfacade {
     /**
      * Lets you edit or add a rating.
      *
-     * @param movie The movie that you want to add a new rating.
-     * @return The movie with the new rating.
+     * @param movieToUpdate The movie that you want to add a new rating.
      */
     @Override
-    public Movie editRating(Movie movie) {
-        return null;
+    public void editRating(Movie movieToUpdate) throws SQLException {
+        dalController.editRating(movieToUpdate);
     }
 
     /**

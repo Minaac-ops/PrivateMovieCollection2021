@@ -18,11 +18,11 @@ public class Movie {
     private int year;
     private String path;
     private int duration;
-    private double rating;
+    private String rating;
     private int lastView;
     private int catMovId;
 
-    public Movie(int id, String name, int year, String path, int duration, double rating, int lastView) {
+    public Movie(int id, String name, int year, String path, int duration, String rating, int lastView) {
         this.id = id;
         this.name = name;
         this.year = year;
@@ -71,8 +71,6 @@ public class Movie {
         this.year = year;
     }
 
-
-
     public String getPath() throws IOException {
         String url;
         Properties pathProperties = new Properties();
@@ -97,12 +95,12 @@ public class Movie {
         this.duration = duration;
     }
 
-    public double getRating()
+    public String getRating()
     {
         return rating;
     }
 
-    public void setRating(double rating)
+    public void setRating(String rating)
     {
         this.rating = rating;
     }
