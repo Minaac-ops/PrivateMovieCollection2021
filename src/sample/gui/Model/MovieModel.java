@@ -30,11 +30,6 @@ public class MovieModel {
         return logicfacade.search((ObservableList<Movie>)searchfilter, query);
     }
 
-    public ObservableList<Movie> getAllCatMovies(int id) throws SQLException {
-        ObservableList<Movie> allMovies = FXCollections.observableArrayList();
-        allMovies.addAll(logicfacade.getAllCatMovies(id));
-        return allMovies;
-    }
     public void addMovie(String name, int year, int duration, float rating, String path){
         Movie movie = logicfacade.addMovie(name, year, duration, rating, path);
         allMovies.add(movie);

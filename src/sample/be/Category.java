@@ -36,7 +36,7 @@ public class Category {
         return movieList;
     }
 
-    public void movieList(List<Movie> movieList) {
+    public void setMovieList(List<Movie> movieList) {
         this.movieList = movieList;
     }
 }

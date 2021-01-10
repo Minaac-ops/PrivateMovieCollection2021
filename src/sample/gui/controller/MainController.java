@@ -30,7 +30,6 @@ public class MainController implements Initializable {
 
     public final MovieModel movieModel;
     private ObservableList<Movie> observableListMovie;
-    private ObservableList<Movie> observableListCatMov;
 
     public final CategoryModel categoryModel;
     private ObservableList<Category> observableListCategory;
@@ -59,9 +58,7 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         observableListCategory = categoryModel.getCategories();
-        observableListMovie = movieModel.getAllMovies();
 
-        lstCatMov.setItems(observableListMovie);
         durationcolumn.setCellValueFactory(new PropertyValueFactory<>("Duration"));
         nameSongColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
         ratingcolumn.setCellValueFactory(new PropertyValueFactory<>("Rating"));
@@ -72,8 +69,11 @@ public class MainController implements Initializable {
 
     @FXML
     public void handleGetCatMovies(MouseEvent event) {
-        List<Movie> CatMovList = lstCat.getSelectionModel().getSelectedItem().getMovieList();
-        lstCatMov.setItems((ObservableList<Movie>) CatMovList);
+        lstCatMov.getItems().clear();
+        List<Movie> catMovList = lstCat.getSelectionModel().getSelectedItem().getMovieList();
+        for (int x = catMovList.size() - 1; x >= 0; x--) {
+            lstCatMov.getItems().add(catMovList.get(x));
+        }
     }
 
     @FXML

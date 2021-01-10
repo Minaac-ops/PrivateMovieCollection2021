@@ -2,6 +2,7 @@ package sample.dal.db;
 
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import sample.be.Category;
+import sample.be.Movie;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -13,6 +14,7 @@ import java.util.List;
 
 public class CategoryDAO {
 
+    CatMovDAO catMovDAO = new CatMovDAO();
     private MyDBConnector databaseconnector;
 
     private final JDBCConnectionPool connectionPool;
@@ -35,8 +37,9 @@ public class CategoryDAO {
             while (rs.next()) {
                 int id = rs.getInt("CatId");
                 String name = rs.getString("name");
-
                 Category category = new Category(id, name);
+                List<Movie> allMovies = catMovDAO.getAllCatmovies(id);
+                category.setMovieList(allMovies);
                 allCategories.add(category);
             }
         } return allCategories;
