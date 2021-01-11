@@ -123,6 +123,17 @@ public class MovieDAO
             }
         } return  badMovies;
     }
+
+    public void deleteBadMovies (Movie badMovieToDelete){
+        try(Connection con = connectionPool.checkOut()) {
+            String query = "DELETE FROM Movie WHERE Rating <= 5.0;";
+            PreparedStatement st = con.prepareStatement(query);
+            st.execute();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
 }
 
 
