@@ -24,7 +24,7 @@ public class CatMovDAO {
             preparedStatement.setInt(1, catMovId);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-                Movie movie = new Movie(rs.getInt("CatMovId"), rs.getString("Name"), rs.getInt("Year"), rs.getString("Filelink"), rs.getInt("Duration"), rs.getFloat("Rating"), rs.getInt("LastView"));
+                Movie movie = new Movie(rs.getInt("CatMovId"), rs.getString("Name"), rs.getInt("Year"), rs.getString("Filelink"), rs.getInt("Duration"), rs.getString("Rating"), rs.getInt("LastView"));
                 movie.setCatMovId(rs.getInt("CatMovId"));
                 newMovieList.add(movie);
             }

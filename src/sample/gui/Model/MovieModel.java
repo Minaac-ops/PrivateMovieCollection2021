@@ -34,4 +34,9 @@ public class MovieModel {
         Movie movie = logicfacade.addMovie(name, year, duration, rating, path);
         allMovies.add(movie);
     }
+
+    public void editRating(Movie movieToUpdate) throws SQLException {
+        logicfacade.editRating(movieToUpdate);
+    }
+
 }

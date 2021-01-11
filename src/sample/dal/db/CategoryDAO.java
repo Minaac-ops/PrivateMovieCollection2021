@@ -15,13 +15,13 @@ import java.util.List;
 public class CategoryDAO {
 
     CatMovDAO catMovDAO = new CatMovDAO();
-    private MyDBConnector databaseconnector;
 
     private final JDBCConnectionPool connectionPool;
 
 
     public CategoryDAO() throws IOException, SQLServerException {
         connectionPool = JDBCConnectionPool.getInstance();
+        catMovDAO = new CatMovDAO();
     }
 
     /**
