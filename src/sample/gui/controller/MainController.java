@@ -19,7 +19,6 @@ import sample.be.Movie;
 import sample.gui.Model.CategoryModel;
 import sample.gui.Model.MovieModel;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -33,6 +32,7 @@ public class MainController implements Initializable {
 
     public final CategoryModel categoryModel;
     private ObservableList<Category> observableListCategory;
+
 
     @FXML
     public TableView<Category> lstCat;

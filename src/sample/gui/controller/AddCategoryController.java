@@ -40,10 +40,13 @@ public class AddCategoryController implements Initializable {
 
     }
 
-    public void handleAddCatbtn(ActionEvent actionEvent) {
+    @FXML
+    public void handleAddCatbtn(ActionEvent actionEvent) throws IOException {
         String name = txtName.getText().trim();
         categoryModel.addCategory(name);
-
+        if (name != null && name.length() > 0 && name.length() < 20) {
+            cancelNewCategory(actionEvent);
+        }
     }
 
     @FXML

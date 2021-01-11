@@ -31,7 +31,7 @@ public class DalController implements dalInterface {
      */
     @Override
     public Category addCategory(String name) {
-        return null;
+        return catrepo.createCategory(name);
     }
 
     /**

@@ -25,8 +25,9 @@ public class CategoryModel {
         return categories;
     }
 
-    public void addCategory (String name){
-
+    public void addCategory(String name){
+        Category category = logicfacade.addCategory(name);
+        categories.add(category);
     }
 
 }

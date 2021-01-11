@@ -75,7 +75,7 @@ public class PMCManager implements Logicfacade {
      */
     @Override
     public Category addCategory(String name) {
-        return null;
+        return dalController.addCategory(name);
     }
 
     /**

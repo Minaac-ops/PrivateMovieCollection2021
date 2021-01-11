@@ -5,10 +5,7 @@ import sample.be.Category;
 import sample.be.Movie;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +40,21 @@ public class CategoryDAO {
                 allCategories.add(category);
             }
         } return allCategories;
+    }
+
+    public Category createCategory(String name)
+    {
+        String sql = "INSERT INTO Category(Name) VALUES(?);";
+        try (Connection con = connectionPool.checkOut();
+             PreparedStatement st = con.prepareStatement(sql)) {
+            st.setString(1, name);
+            st.addBatch();
+            st.executeBatch();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        Category category = new Category(0, name);
+        return category;
     }
 
 }
