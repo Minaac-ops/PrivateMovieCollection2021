@@ -81,6 +81,17 @@ public class MovieDAO
         }
     }
 
+    public void deleteMovie(Movie movieToDelete) {
+        try (Connection con = connectionPool.checkOut()){
+            String query = "DELETE FROM Movie WHERE MovieId = ?;";
+            PreparedStatement st = con.prepareStatement(query);
+            st.setInt(1, movieToDelete.getID());
+            st.execute();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
 }
 
 

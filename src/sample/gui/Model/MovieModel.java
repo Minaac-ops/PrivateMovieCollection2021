@@ -38,4 +38,9 @@ public class MovieModel {
     public void editRating(Movie movieToUpdate) throws SQLException {
         logicfacade.editRating(movieToUpdate);
     }
+
+    public void deleteMovie(Movie movieToDelete) {
+        logicfacade.deleteMovie(movieToDelete);
+        allMovies.remove(movieToDelete);
+    }
 }

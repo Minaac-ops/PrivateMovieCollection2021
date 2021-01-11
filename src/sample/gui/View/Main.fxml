@@ -36,7 +36,7 @@
             <Font name="Bauhaus 93" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="321.0" layoutY="345.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="136.0" style="-fx-background-color: #20120F;" text="REMOVE MOVIE" textFill="#0bee34">
+      <Button layoutX="321.0" layoutY="345.0" mnemonicParsing="false" onAction="#handleDeleteMovie" prefHeight="31.0" prefWidth="136.0" style="-fx-background-color: #20120F;" text="REMOVE MOVIE" textFill="#0bee34">
          <font>
             <Font name="Bauhaus 93" size="16.0" />
          </font>

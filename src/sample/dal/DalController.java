@@ -84,11 +84,11 @@ public class DalController implements dalInterface {
     /**
      * Deletes a movie from the database.
      *
-     * @param movie The movie to delete.
+     * @param movieToDelete The movie to delete.
      */
     @Override
-    public void deleteMovie(Movie movie) {
-
+    public void deleteMovie(Movie movieToDelete) {
+        movierepo.deleteMovie(movieToDelete);
     }
 
     /**

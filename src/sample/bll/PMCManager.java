@@ -50,11 +50,13 @@ public class PMCManager implements Logicfacade {
     /**
      * Deletes a movie.
      *
-     * @param movie The movie to delete.
+     * @param movieToDelete The movie to delete.
      */
     @Override
-    public void deleteMovie(Movie movie) {
-
+    public void deleteMovie(Movie movieToDelete) {
+        if (movieToDelete != null) {
+            dalController.deleteMovie(movieToDelete);
+        }
     }
 
     /**
