@@ -9,9 +9,9 @@
 <AnchorPane prefHeight="408.0" prefWidth="293.0" style="-fx-background-color: #20120F;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.gui.controller.AddMovieController">
    <children>
       <TextField fx:id="nameMovie" layoutX="14.0" layoutY="97.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #a6a0a0;" />
-      <Button layoutX="140.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleAddMovbtn" style="-fx-background-color: #20120F;" text="ADD" textFill="#f508e1">
+      <Button layoutX="217.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleAddMovbtn" style="-fx-background-color: #20120F;" text="ADD" textFill="#f508e1">
          <font>
-            <Font name="Bauhaus 93" size="18.0" />
+            <Font name="Bauhaus 93" size="20.0" />
          </font>
       </Button>
       <Text fill="#0bee34" layoutX="91.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NEW MOVIE">
@@ -48,10 +48,5 @@
          </font>
       </Text>
       <TextField fx:id="moviePath" layoutX="17.0" layoutY="330.0" prefHeight="25.0" prefWidth="257.0" style="-fx-background-color: #a6a0a0;" />
-      <Button layoutX="193.0" layoutY="368.0" mnemonicParsing="false" style="-fx-background-color: #20120F;" text="CANCEL" textFill="#f508e1">
-         <font>
-            <Font name="Bauhaus 93" size="18.0" />
-         </font>
-      </Button>
    </children>
 </AnchorPane>
