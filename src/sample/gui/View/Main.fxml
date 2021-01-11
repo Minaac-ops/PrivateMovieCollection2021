@@ -41,12 +41,12 @@
             <Font name="Bauhaus 93" size="16.0" />
          </font>
       </Button>
-      <Button layoutY="390.0" mnemonicParsing="false" onAction="#clickAddCategory" style="-fx-background-color: #20120F;" text="ADD CATEGORY" textFill="#0bee34">
+      <Button layoutY="390.0" mnemonicParsing="false" onAction="#clickAddCategory" style="-fx-background-color: #20120F;" text="ADD GENRE" textFill="#0bee34">
          <font>
             <Font name="Bauhaus 93" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="1.0" layoutY="416.0" mnemonicParsing="false" onAction="#handleDeleteCat" style="-fx-background-color: #20120F;" text="REMOVE CATEGORY" textFill="#0bee34">
+      <Button layoutX="1.0" layoutY="416.0" mnemonicParsing="false" onAction="#handleDeleteCat" style="-fx-background-color: #20120F;" text="REMOVE GENRE" textFill="#0bee34">
          <font>
             <Font name="Bauhaus 93" size="16.0" />
          </font>
