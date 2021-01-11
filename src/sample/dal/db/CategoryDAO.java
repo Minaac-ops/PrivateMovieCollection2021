@@ -21,6 +21,7 @@ public class CategoryDAO {
 
     public CategoryDAO() throws IOException, SQLServerException {
         connectionPool = JDBCConnectionPool.getInstance();
+        catMovDAO = new CatMovDAO();
     }
 
     /**

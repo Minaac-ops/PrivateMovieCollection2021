@@ -19,6 +19,5 @@
             <Font name="Bauhaus 93" size="22.0" />
          </font>
       </Text>
-      <Button layoutX="237.0" layoutY="135.0" mnemonicParsing="false" onAction="#handleGoBack" text="GO BACK" />
    </children>
 </AnchorPane>

@@ -30,13 +30,4 @@ public class EditRatingController {
     public void handleSaveRating(ActionEvent event)
     {
     }
-
-    @FXML
-    public void handleGoBack(ActionEvent event) throws IOException {
-        Parent MainParent = FXMLLoader.load(getClass().getResource("/sample/gui/View/Main.fxml"));
-        Scene Mainscene = new Scene(MainParent);
-        Stage mainStage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        mainStage.setScene(Mainscene);
-        mainStage.show();
-    }
 }
