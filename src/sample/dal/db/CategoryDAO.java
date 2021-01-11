@@ -57,4 +57,15 @@ public class CategoryDAO {
         return category;
     }
 
+    public void deleteCategory(Category categoryToDelete) {
+        try (Connection con = connectionPool.checkOut()) {
+            String query = "DELETE FROM Category WHERE CatId =?;";
+            PreparedStatement st = con.prepareStatement(query);
+            st.setInt(1, categoryToDelete.getID());
+            st.execute();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
 }

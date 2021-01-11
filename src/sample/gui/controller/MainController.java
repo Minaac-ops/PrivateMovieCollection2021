@@ -112,4 +112,10 @@ public class MainController implements Initializable {
             lstCatMov.setItems(foundMovie);
         }
     }
+
+    @FXML
+    public void handleDeleteCat(ActionEvent event) {
+        Category categoryToDelete = lstCat.getSelectionModel().getSelectedItem();
+        categoryModel.deleteCategory(categoryToDelete);
+    }
 }

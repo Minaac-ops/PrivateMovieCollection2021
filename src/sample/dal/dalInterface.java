@@ -18,9 +18,9 @@ public interface dalInterface {
 
     /**
      * Deletes a category from the database,
-     * @param category The category to delete.
+     * @param categoryToDelete The category to delete.
      */
-    void deleteCategory(String category);
+    void deleteCategory(Category categoryToDelete);
 
     /**
      * Gets a list of all categories from the database.

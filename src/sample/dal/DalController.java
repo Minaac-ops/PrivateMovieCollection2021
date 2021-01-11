@@ -37,11 +37,11 @@ public class DalController implements dalInterface {
     /**
      * Deletes a category from the database,
      *
-     * @param category The category to delete.
+     * @param categoryToDelete The category to delete.
      */
     @Override
-    public void deleteCategory(String category) {
-
+    public void deleteCategory(Category categoryToDelete) {
+    catrepo.deleteCategory(categoryToDelete);
     }
 
     /**

@@ -81,11 +81,13 @@ public class PMCManager implements Logicfacade {
     /**
      * Deletes a category.
      *
-     * @param category
+     * @param categoryToDelete
      */
     @Override
-    public void deleteCategory(Category category) {
-
+    public void deleteCategory(Category categoryToDelete) {
+    if (categoryToDelete != null){
+        dalController.deleteCategory(categoryToDelete);
+    }
     }
 
     /**

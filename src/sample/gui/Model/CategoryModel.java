@@ -30,4 +30,8 @@ public class CategoryModel {
         categories.add(category);
     }
 
+    public void deleteCategory(Category categoryToDelete){
+        logicfacade.deleteCategory(categoryToDelete);
+        categories.remove(categoryToDelete);
+    }
 }
