@@ -4,6 +4,7 @@ import javafx.collections.ObservableList;
 import sample.be.Category;
 import sample.be.Movie;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -34,9 +35,9 @@ public interface Logicfacade {
 
     /**
      * Lets you edit or add a rating.
-     * @param movie The movie that you want to add a new rating.
+     * @param id, rating The movie that you want to add a new rating.
      */
-    void editRating(Movie movie) throws SQLException;
+    void editRating(int id, String rating) throws SQLException, IOException;
 
     /**
      * Adds a category.

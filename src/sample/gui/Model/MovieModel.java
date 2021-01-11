@@ -38,8 +38,8 @@ public class MovieModel {
         allMovies.add(movie);
     }
 
-    public void editRating(Movie movieToUpdate) throws SQLException {
-        logicfacade.editRating(movieToUpdate);
+    public void editRating(int id, String rating) throws SQLException, IOException {
+        logicfacade.editRating(id, rating);
     }
 
     public void deleteMovie(Movie movieToDelete) {

@@ -65,7 +65,6 @@ public class AddMovieController implements Initializable {
         }
     }
 
-
     @FXML
     public void cancelNewMovie(ActionEvent event) throws IOException {
         Parent Mainparent = FXMLLoader.load(getClass().getResource("/sample/gui/View/Main.fxml"));

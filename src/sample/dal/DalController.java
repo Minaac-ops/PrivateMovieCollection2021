@@ -117,11 +117,11 @@ public class DalController implements dalInterface {
     /**
      * Lets you edit or add a rating on a movie from the database.
      *
-     * @param movieToUpdate The movie with the updated or added rating.
+     * @param id The movie with the updated or added rating.
      */
     @Override
-    public void editRating(Movie movieToUpdate) throws SQLException {
-        movierepo.editMovieRating(movieToUpdate);
+    public void editRating(int id, String rating) throws SQLException, IOException {
+        movierepo.editMovieRating(id, rating);
     }
 
     @Override

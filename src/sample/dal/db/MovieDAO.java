@@ -74,11 +74,13 @@ public class MovieDAO
         }
     }
 
-    public void editMovieRating(Movie movieToUpdate) throws SQLException {
-        try (Connection con = dbConnector.getConnection()) {
-            String sql = "UPDATE Movie SET Rating=? WHERE MovieId=?;";
-            PreparedStatement preparedStatement = con.prepareStatement(sql);
-            preparedStatement.setString(1, movieToUpdate.getRating());
+    public void editMovieRating(int id, String rating) throws SQLException, IOException {
+        try (Connection con = connectionPool.checkOut()) {
+            String query = "UPDATE Movie SET Rating=? WHERE MovieId=?;";
+            PreparedStatement st = con.prepareStatement(query);
+            st.setString(1, rating);
+            st.setInt(2, id);
+            st.execute();
         }
     }
 
@@ -101,7 +103,7 @@ public class MovieDAO
      * @throws SQLException
      */
 
-    public List<Movie> getBadMovies () throws SQLException {
+    public List<Movie> getBadMovies() throws SQLException {
         List<Movie> badMovies = new ArrayList<>();
         Connection con = connectionPool.checkOut();
         try (Statement statement = con.createStatement()) {

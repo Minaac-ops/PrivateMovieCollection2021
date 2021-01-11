@@ -3,6 +3,7 @@ package sample.dal;
 import sample.be.Category;
 import sample.be.Movie;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -68,9 +69,9 @@ public interface dalInterface {
     /**
      * Lets you edit or add a rating on a movie from the database.
      *
-     * @param movie The movie with the updated or added rating.
+     * @param id The movie with the updated or added rating.
      */
-    void editRating(Movie movie) throws SQLException;
+    void editRating(int id, String rating) throws SQLException, IOException;
 
     /**
      * Gets a list of all movies in choosen category from the database.

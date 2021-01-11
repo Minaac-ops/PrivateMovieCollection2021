@@ -29,7 +29,6 @@ import java.util.ResourceBundle;
 public class MainController implements Initializable {
 
     public final MovieModel movieModel;
-    private ObservableList<Movie> observableListMovie;
 
     public final CategoryModel categoryModel;
     private ObservableList<Category> observableListCategory;

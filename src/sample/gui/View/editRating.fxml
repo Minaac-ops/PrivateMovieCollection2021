@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="138.0" prefWidth="295.0" style="-fx-background-color: #20120F;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.gui.controller.EditRatingController">
+<AnchorPane prefHeight="292.0" prefWidth="464.0" style="-fx-background-color: #20120F;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.gui.controller.EditRatingController">
    <children>
-      <TextField fx:id="ratingField" layoutX="14.0" layoutY="56.0" prefHeight="25.0" prefWidth="183.0" style="-fx-background-color: #a6a0a0;" />
-      <Button layoutX="148.0" layoutY="95.0" mnemonicParsing="false" onAction="#handleSaveRating" style="-fx-background-color: #20120F;" text="EDIT" textFill="#f508e1">
+      <TextField fx:id="ratingField" layoutX="245.0" layoutY="106.0" prefHeight="25.0" prefWidth="183.0" style="-fx-background-color: #a6a0a0;" />
+      <Button layoutX="245.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleSaveRating" style="-fx-background-color: #20120F;" text="Rate!" textFill="#f508e1">
          <font>
             <Font name="Bauhaus 93" size="18.0" />
          </font>
@@ -19,10 +22,17 @@
             <Font name="Bauhaus 93" size="22.0" />
          </font>
       </Text>
-      <Button layoutX="205.0" layoutY="95.0" mnemonicParsing="false" onAction="#cancelEditRating" style="-fx-background-color: #20120F;" text="CANCEL" textFill="#f508e1">
+      <Button layoutX="315.0" layoutY="146.0" mnemonicParsing="false" onAction="#cancelEditRating" style="-fx-background-color: #20120F;" text="CANCEL!" textFill="#f508e1">
          <font>
             <Font name="Bauhaus 93" size="18.0" />
          </font>
       </Button>
+      <Label layoutX="275.0" layoutY="79.0" prefHeight="18.0" prefWidth="141.0" text="Rate from 1.0-10.0!" />
+      <TableView fx:id="lstCatMov" layoutX="14.0" layoutY="46.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="movieColumn" prefWidth="199.20001220703125" text="What movie do you want to rate?" />
+        </columns>
+      </TableView>
+      <Label fx:id="editLabel" layoutX="147.0" layoutY="11.0" prefHeight="32.0" prefWidth="306.0" text="Pick a movie and rate it!" />
    </children>
 </AnchorPane>
