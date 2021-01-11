@@ -72,13 +72,13 @@ public class DalController implements dalInterface {
      *
      * @param name     The name of the movie
      * @param rating   The rating of the movie
-     * @param filelink The name of the mp4 file.
+     * @param path The name of the mp4 file.
      * @param duration The duration of the movie in minutes.
      * @return a movie object.
      */
     @Override
-    public Movie addMovie(String name, double rating, int filelink, String duration) {
-        return null;
+    public Movie addMovie(String name, int year, String path, int duration, String rating, int lastView) throws SQLException {
+        return movierepo.addMovie(name, year, path, duration, rating, lastView);
     }
 
     /**

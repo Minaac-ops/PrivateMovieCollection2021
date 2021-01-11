@@ -40,11 +40,11 @@ public interface dalInterface {
      *
      * @param name The name of the movie
      * @param rating The rating of the movie
-     * @param filelink The name of the mp4 file.
+     * @param path The name of the mp4 file.
      * @param duration The duration of the movie in minutes.
      * @return a movie object.
      */
-    Movie addMovie(String name, double rating, int filelink, String duration);
+    Movie addMovie(String name, int year, String path, int duration, String rating, int lastView) throws SQLException;
 
     /**
      * Deletes a movie from the database.

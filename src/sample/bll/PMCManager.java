@@ -39,12 +39,12 @@ public class PMCManager implements Logicfacade {
      * @param year     The release year.
      * @param duration The duration in minutes.
      * @param rating   The rating on the movie.
-     * @param filelink The link to the mp4 file.
+     * @param path The link to the mp4 file.
      * @return A new movie.
      */
     @Override
-    public Movie addMovie(String name, int year, int duration, float rating, String filelink) {
-        return dalController.addMovie(name, year, duration, filelink);
+    public Movie addMovie(String name, int year, String path, int duration, String rating, int lastView) throws SQLException {
+        return dalController.addMovie(name, year, path, duration, rating, lastView);
     }
 
     /**

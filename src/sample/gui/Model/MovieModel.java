@@ -30,13 +30,12 @@ public class MovieModel {
         return logicfacade.search((ObservableList<Movie>)searchfilter, query);
     }
 
-    public void addMovie(String name, int year, int duration, float rating, String path){
-        Movie movie = logicfacade.addMovie(name, year, duration, rating, path);
+    public void addMovie(String name, int year, String path, int duration, String rating, int lastView) throws SQLException {
+        Movie movie = logicfacade.addMovie(name, year, path, duration, rating, lastView);
         allMovies.add(movie);
     }
 
     public void editRating(Movie movieToUpdate) throws SQLException {
         logicfacade.editRating(movieToUpdate);
     }
-
 }

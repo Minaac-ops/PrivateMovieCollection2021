@@ -50,8 +50,8 @@ public class MovieDAO
      * @param lastView
      * @return the new movie.
      */
-    public Movie addMovie(String name, int year, String path,int duration, String rating, int lastView) {
-        String sql = "INSERT INTO Movie (Name, Year, Duration, Rating, Path, LastView) VALUES (?,?,?,?,?,?);";
+    public Movie addMovie(String name, int year, String path, int duration, String rating, int lastView) throws SQLException {
+        String sql = "INSERT INTO Movie (Name, Year, Duration, Rating, Filelink, LastView) VALUES (?,?,?,?,?,?);";
         try (Connection con = connectionPool.checkOut();
              PreparedStatement st = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             st.setString(1, name);
@@ -59,19 +59,18 @@ public class MovieDAO
             st.setInt(3, duration);
             st.setString(4, rating);
             st.setString(5, path);
+            st.setInt(6, lastView);
+
             st.executeUpdate();
             ResultSet rs = st.getGeneratedKeys();
             int id = 0;
 
             if (rs.next()) {
-                id = rs.getInt(0);
+                id = rs.getInt(1);
             }
             Movie movie = new Movie(id, name, year, path, duration, rating, lastView);
             return movie;
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
         }
-        return null;
     }
 
     public void editMovieRating(Movie movieToUpdate) throws SQLException {
@@ -81,6 +80,7 @@ public class MovieDAO
             preparedStatement.setString(1, movieToUpdate.getRating());
         }
     }
+
 }
 
 
