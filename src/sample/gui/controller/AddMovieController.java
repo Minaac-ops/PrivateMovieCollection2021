@@ -3,8 +3,14 @@ package sample.gui.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import sample.Main;
 import sample.gui.Model.MovieModel;
 
 import java.io.IOException;
@@ -48,6 +54,16 @@ public class AddMovieController implements Initializable {
         String path = moviePath.getText().trim();
 
         movieModel.addMovie(name, year, duration, rating, path);
+    }
+
+
+    @FXML
+    public void cancelNewMovie(ActionEvent event) throws IOException {
+        Parent Mainparent = FXMLLoader.load(getClass().getResource("/sample/gui/View/Main.fxml"));
+        Scene Mainscene = new Scene(Mainparent);
+        Stage MainStage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        MainStage.setScene(Mainscene);
+        MainStage.show();
     }
 }
 

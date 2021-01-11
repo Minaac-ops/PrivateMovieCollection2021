@@ -2,8 +2,13 @@ package sample.gui.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import sample.gui.Model.CategoryModel;
 
 import java.io.IOException;
@@ -39,5 +44,14 @@ public class AddCategoryController implements Initializable {
         String name = txtName.getText().trim();
         categoryModel.addCategory(name);
 
+    }
+
+    @FXML
+    public void cancelNewCategory(ActionEvent event) throws IOException {
+        Parent Mainparent = FXMLLoader.load(getClass().getResource("/sample/gui/View/Main.fxml"));
+        Scene Mainscene = new Scene(Mainparent);
+        Stage MainStage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        MainStage.setScene(Mainscene);
+        MainStage.show();
     }
 }

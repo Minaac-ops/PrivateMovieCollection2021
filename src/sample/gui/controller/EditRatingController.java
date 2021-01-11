@@ -30,4 +30,14 @@ public class EditRatingController {
     public void handleSaveRating(ActionEvent event)
     {
     }
+
+    @FXML
+    public void cancelEditRating(ActionEvent event) throws IOException {
+        Parent Mainparent = FXMLLoader.load(getClass().getResource("/sample/gui/View/Main.fxml"));
+        Scene Mainscene = new Scene(Mainparent);
+        Stage MainStage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        MainStage.setScene(Mainscene);
+        MainStage.show();
+    }
+
 }
