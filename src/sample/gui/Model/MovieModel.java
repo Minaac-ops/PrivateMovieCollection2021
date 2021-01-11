@@ -14,11 +14,14 @@ public class MovieModel {
 
     private ObservableList<Movie> allMovies;
     private Logicfacade logicfacade;
+    private ObservableList<Movie> badMovies;
 
     public MovieModel() throws IOException, SQLException {
         allMovies = FXCollections.observableArrayList();
         logicfacade = new PMCManager();
         allMovies.addAll(logicfacade.getAllMovies());
+        badMovies = FXCollections.observableArrayList();
+        badMovies.addAll(logicfacade.getBadMovies());
     }
 
     public ObservableList<Movie> getAllMovies() {
@@ -42,5 +45,9 @@ public class MovieModel {
     public void deleteMovie(Movie movieToDelete) {
         logicfacade.deleteMovie(movieToDelete);
         allMovies.remove(movieToDelete);
+    }
+
+    public ObservableList<Movie> getBadMovies() {
+        return badMovies;
     }
 }

@@ -126,4 +126,9 @@ public class PMCManager implements Logicfacade {
         List<Movie> catMovieList = getAllCatMovies(id);
         return catMovieList;
     }
+
+    @Override
+    public List<Movie> getBadMovies() throws SQLException {
+        return dalController.getBadMovies();
+    }
 }

@@ -1,6 +1,7 @@
 package sample.dal.db;
 
 import com.microsoft.sqlserver.jdbc.SQLServerException;
+import javafx.stage.Stage;
 import sample.be.Movie;
 
 import java.io.IOException;
@@ -91,6 +92,34 @@ public class MovieDAO
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+    }
+
+
+    /**
+     * Gets a List of all movies that have a rating below 5.0
+     * @return  the list of badMovies
+     * @throws SQLException
+     */
+
+    public List<Movie> getBadMovies () throws SQLException {
+        List<Movie> badMovies = new ArrayList<>();
+        Connection con = connectionPool.checkOut();
+        try (Statement statement = con.createStatement()) {
+            ResultSet rs = statement.executeQuery("SELECT * FROM Movie WHERE Rating <= 5.0");
+
+            while (rs.next()) {
+                int id = rs.getInt("movieId");
+                String name = rs.getString("Name");
+                String rating = rs.getString("Rating");
+                String path = rs.getString("Filelink");
+                int lastView = rs.getInt("Lastview");
+                int year = rs.getInt("Year");
+                int duration = rs.getInt("Duration");
+
+                Movie movie = new Movie (id, name, year, path, duration, rating, lastView);
+                badMovies.add(movie);
+            }
+        } return  badMovies;
     }
 }
 

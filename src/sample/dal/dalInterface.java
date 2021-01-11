@@ -77,4 +77,10 @@ public interface dalInterface {
      * @return
      */
     List<Movie> getCatMovies(int catMovId) throws SQLException;
+
+    /**
+     * Gets a List of all bad movies from the database.
+     * @return
+     */
+    List<Movie> getBadMovies () throws SQLException;
 }

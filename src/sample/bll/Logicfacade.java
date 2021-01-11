@@ -65,11 +65,18 @@ public interface Logicfacade {
     ObservableList<Movie> search(ObservableList<Movie> searchfilter, String query);
 
     /**
-     * Gets a list of all songs in a spesific category orderes by id.
+     * Gets a list of all movies in a specific category ordered by id.
      * @param id
      * @return
      */
     List<Movie> getAllCatMovies(int id) throws SQLException;
+
+
+    /**
+     * Gets a list of all bad movies
+     * @return
+     */
+    List<Movie> getBadMovies() throws SQLException;
 
 
 }
