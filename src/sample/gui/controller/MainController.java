@@ -12,6 +12,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import sample.be.Category;
@@ -19,6 +20,8 @@ import sample.be.Movie;
 import sample.gui.Model.CategoryModel;
 import sample.gui.Model.MovieModel;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -64,6 +67,26 @@ public class MainController implements Initializable {
 
         lstCat.setItems(observableListCategory);
         catNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+        doubleClickListener();
+    }
+
+    private void doubleClickListener() {
+        lstCatMov.setOnMouseClicked((MouseEvent event) -> {
+            if(event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
+                Movie clickedMovie = lstCatMov.getSelectionModel().getSelectedItem();
+                try {
+                    File f = new File(clickedMovie.getPath());
+                    if (f.isFile() && !f.isDirectory()) {
+                        Desktop.getDesktop().open(f);
+                    } else {
+                        System.out.println("File not found: " + clickedMovie.getPath());
+                    }
+                } catch(IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     /**
