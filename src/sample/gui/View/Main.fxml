@@ -78,6 +78,6 @@
           <TableColumn fx:id="movieColumn" prefWidth="420.0" style="-fx-background-color: #a6a0a0;" text="ALL MOVIES" />
         </columns>
       </TableView>
-      <Button layoutX="196.0" layoutY="136.0" mnemonicParsing="false" onAction="#handleMoveToGenre" prefHeight="25.0" prefWidth="29.0" style="-fx-background-color: #a6a0a0;" text="⬅" />
+      <Button layoutX="196.0" layoutY="136.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="29.0" style="-fx-background-color: #a6a0a0;" text="⬅" />
    </children>
 </AnchorPane>
