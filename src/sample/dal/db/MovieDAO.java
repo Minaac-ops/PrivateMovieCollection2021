@@ -75,8 +75,7 @@ public class MovieDAO
 
             Movie movie = new Movie(id, name, year, path, duration, rating, lastView);
             return movie;
-        }//Movie movie = new Movie(rs.getInt("CatMovId"), rs.getString("Name"), rs.getInt("Year"), rs.getString("Filelink"), rs.getInt("Duration"), rs.getString("Rating"), rs.getInt("LastView"));
-        //movie.setCatMovId(rs.getInt("CatMovId"))
+        }
     }
 
     public void editMovieRating(int id, String rating) throws SQLException, IOException {
