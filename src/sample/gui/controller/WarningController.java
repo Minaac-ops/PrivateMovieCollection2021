@@ -24,15 +24,19 @@ public class WarningController implements Initializable {
 
     public final MovieModel movieModel;
     private ObservableList<Movie> badMovies;
+    private ObservableList<Movie> oldMovies;
 
     @FXML
     public TableView<Movie> lstBadMovies;
     @FXML
     public TableColumn<Movie,String> badNameColumn;
+    @FXML
+    public TableView<Movie> lstOldMovies;
+    @FXML
+    public TableColumn<Movie, String> oldNameColumn;
 
     public WarningController() throws IOException, SQLException {
         movieModel = new MovieModel();
-
     }
 
     @Override
@@ -40,6 +44,10 @@ public class WarningController implements Initializable {
         badMovies = movieModel.getBadMovies();
         lstBadMovies.setItems(badMovies);
         badNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+        oldMovies = movieModel.getOldMovies();
+        lstOldMovies.setItems(oldMovies);
+        oldNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
     }
 
 

@@ -145,6 +145,31 @@ public class MovieDAO
     }
 
     /**
+     * Gets a list of all movies that you haven't watched since 1990-01-01.
+     * @return The list of old movies..
+     */
+    public List<Movie> getOldMovies() throws SQLException {
+        List<Movie> oldMovies = new ArrayList<>();
+        Connection con = connectionPool.checkOut();
+        try (Statement statement = con.createStatement()) {
+            ResultSet rs = statement.executeQuery("SELECT * FROM Movie WHERE Lastview <= '2000-01-01';");
+
+            while (rs.next()) {
+                int id = rs.getInt("movieId");
+                String name = rs.getString("Name");
+                String rating = rs.getString("Rating");
+                String path = rs.getString("Filelink");
+                String lastView = rs.getString("Lastview");
+                int year = rs.getInt("Year");
+                int duration = rs.getInt("Duration");
+
+                Movie movie = new Movie(id, name, year, path, duration, rating, lastView);
+                oldMovies.add(movie);
+            }
+        } return oldMovies;
+    }
+
+    /**
      * Method for deleting the bad movies with rating under 5 and movies you haven't seen in a while
      * @param badMovieToDelete the bad movie to delete
      */

@@ -84,4 +84,6 @@ public interface dalInterface {
      * @return
      */
     List<Movie> getBadMovies () throws SQLException;
+
+    List<Movie> getOldMovies() throws SQLException;
 }

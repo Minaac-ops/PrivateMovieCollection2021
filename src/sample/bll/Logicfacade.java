@@ -79,5 +79,6 @@ public interface Logicfacade {
      */
     List<Movie> getBadMovies() throws SQLException;
 
+    List<Movie> getOldMovies() throws SQLException;
 
 }

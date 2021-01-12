@@ -12,16 +12,23 @@ import java.util.List;
 
 public class MovieModel {
 
-    private ObservableList<Movie> allMovies;
     private Logicfacade logicfacade;
+
+    private ObservableList<Movie> allMovies;
     private ObservableList<Movie> badMovies;
+    private ObservableList<Movie> oldMovies;
 
     public MovieModel() throws IOException, SQLException {
-        allMovies = FXCollections.observableArrayList();
         logicfacade = new PMCManager();
+
+        allMovies = FXCollections.observableArrayList();
         allMovies.addAll(logicfacade.getAllMovies());
+
         badMovies = FXCollections.observableArrayList();
         badMovies.addAll(logicfacade.getBadMovies());
+
+        oldMovies = FXCollections.observableArrayList();
+        oldMovies.addAll(logicfacade.getOldMovies());
     }
 
     /**
@@ -84,5 +91,9 @@ public class MovieModel {
      */
     public ObservableList<Movie> getBadMovies() {
         return badMovies;
+    }
+
+    public ObservableList<Movie> getOldMovies() {
+        return oldMovies;
     }
 }

@@ -145,4 +145,9 @@ public class DalController implements dalInterface {
         return movierepo.getBadMovies();
     }
 
+    @Override
+    public List<Movie> getOldMovies() throws SQLException {
+        return movierepo.getOldMovies();
+    }
+
 }
