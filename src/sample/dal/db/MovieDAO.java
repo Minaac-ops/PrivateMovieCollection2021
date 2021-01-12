@@ -21,6 +21,11 @@ public class MovieDAO
         dbConnector = new MyDBConnector();
     }
 
+    /**
+     * Gets all the movies
+     * @return Returns all the movies
+     * @throws SQLException
+     */
     public List<Movie> getMovies() throws SQLException {
         List<Movie> allMovies = new ArrayList<>();
         Connection con = connectionPool.checkOut();
@@ -78,6 +83,13 @@ public class MovieDAO
         }
     }
 
+    /**
+     * Method for editing the rating of a specific movie
+     * @param id of the movie
+     * @param rating the new rating of the movie
+     * @throws SQLException
+     * @throws IOException
+     */
     public void editMovieRating(int id, String rating) throws SQLException, IOException {
         try (Connection con = connectionPool.checkOut()) {
             String query = "UPDATE Movie SET Rating=? WHERE MovieId=?;";
@@ -88,6 +100,10 @@ public class MovieDAO
         }
     }
 
+    /**
+     * Method for deleting a movie in the database
+     * @param movieToDelete The movie to delete
+     */
     public void deleteMovie(Movie movieToDelete) {
         try (Connection con = connectionPool.checkOut()){
             String query = "DELETE FROM Movie WHERE Name = ?;";
@@ -128,6 +144,10 @@ public class MovieDAO
         } return  badMovies;
     }
 
+    /**
+     * Method for deleting the bad movies with rating under 5 and movies you haven't seen in a while
+     * @param badMovieToDelete the bad movie to delete
+     */
     public void deleteBadMovies (Movie badMovieToDelete){
         try(Connection con = connectionPool.checkOut()) {
             String query = "DELETE FROM Movie WHERE Rating <= 5.0;";

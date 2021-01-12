@@ -43,6 +43,11 @@ public class WarningController implements Initializable {
     }
 
 
+    /**
+     * Method to handle the action that happens when you click the Ok button and deletes the bad movies
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void handleOk(ActionEvent event) throws IOException {
         Parent MainParent = FXMLLoader.load(getClass().getResource("/sample/gui/View/Main.fxml"));
@@ -52,6 +57,11 @@ public class WarningController implements Initializable {
         MainStage.show();
     }
 
+    /**
+     * Method to handle the action that happens when you click the cancel button to keep bad movies
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void handleCancel(ActionEvent event) throws IOException {
         Parent MainParent = FXMLLoader.load(getClass().getResource("/sample/gui/View/Main.fxml"));

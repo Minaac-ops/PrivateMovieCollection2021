@@ -66,6 +66,10 @@ public class MainController implements Initializable {
         catNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
     }
 
+    /**
+     * Method to handle the action that happens when you click the category and the movies show up
+     * @param event
+     */
     @FXML
     public void handleGetCatMovies(MouseEvent event) {
         lstCatMov.getItems().clear();
@@ -75,6 +79,11 @@ public class MainController implements Initializable {
         }
     }
 
+    /**
+     * Method to handle the action that happens when you click the Add movie button
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void clickAddMovie(ActionEvent event) throws IOException {
         Parent MainParent = FXMLLoader.load(getClass().getResource("/sample/gui/View/AddMovie.fxml"));
@@ -83,6 +92,12 @@ public class MainController implements Initializable {
         addMovieStage.setScene(MainScene);
         addMovieStage.show();
     }
+
+    /**
+     * Method to handle the action that happens when you click the Add category button
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void clickAddCategory(ActionEvent event) throws IOException {
         Parent MainParent = FXMLLoader.load(getClass().getResource("/sample/gui/View/addCatergory.fxml"));
@@ -92,6 +107,11 @@ public class MainController implements Initializable {
         addCategoryStage.show();
     }
 
+    /**
+     * Method to handle the action that happens when you click the Edit Rating button
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void handleEditRating(ActionEvent event) throws IOException {
         Parent MainParent = FXMLLoader.load(getClass().getResource("/sample/gui/View/editRating.fxml"));
@@ -101,6 +121,10 @@ public class MainController implements Initializable {
         editRatingStage.show();
     }
 
+    /**
+     * Method to handle the action that happens when you click the search button
+     * @param event
+     */
     @FXML
     public void handleSearchMovie(ActionEvent event) {
         if (searchMovieTxt.getText() == null || searchMovieTxt.getText().length() <= 0 ) {
@@ -112,12 +136,20 @@ public class MainController implements Initializable {
         }
     }
 
+    /**
+     * Method to handle the action that happens when you click the delete category button
+     * @param event
+     */
     @FXML
     public void handleDeleteCat(ActionEvent event) {
         Category categoryToDelete = lstCat.getSelectionModel().getSelectedItem();
         categoryModel.deleteCategory(categoryToDelete);
     }
 
+    /**
+     * Method to handle the action that happens when you click the delete movie button
+     * @param event
+     */
     @FXML
     public void handleDeleteMovie(ActionEvent event) {
         Movie movieToDelete = lstCatMov.getSelectionModel().getSelectedItem();

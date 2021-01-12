@@ -16,6 +16,12 @@ public class CatMovDAO {
         connectionPool = JDBCConnectionPool.getInstance();
     }
 
+    /**
+     * Method that lets you see the movie in a specific category
+     * @param catMovId the ID
+     * @return Returns the movies in the specific category
+     * @throws SQLException
+     */
     public List<Movie> getAllCatmovies(int catMovId) throws SQLException {
         List<Movie> newMovieList = new ArrayList<>();
         try (Connection con = connectionPool.checkOut()) {

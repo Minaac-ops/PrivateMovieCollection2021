@@ -40,6 +40,11 @@ public class AddCategoryController implements Initializable {
 
     }
 
+    /**
+     * Method to handle the action that happens when you click the Add genre button
+     * @param actionEvent
+     * @throws IOException
+     */
     @FXML
     public void handleAddCatbtn(ActionEvent actionEvent) throws IOException {
         String name = txtName.getText().trim();
@@ -49,6 +54,11 @@ public class AddCategoryController implements Initializable {
         }
     }
 
+    /**
+     * Method to handle the action that happens when you click the Cancel button
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void cancelNewCategory(ActionEvent event) throws IOException {
         Parent Mainparent = FXMLLoader.load(getClass().getResource("/sample/gui/View/Main.fxml"));

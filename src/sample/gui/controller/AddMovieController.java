@@ -48,6 +48,12 @@ public class AddMovieController implements Initializable {
 
     }
 
+    /**
+     * Method to handle the action that happens when you click the Add movie button
+     * @param event
+     * @throws IOException
+     * @throws SQLException
+     */
     @FXML
     public void handleAddMovbtn(ActionEvent event) throws IOException, SQLException {
         String name = nameMovie.getText().trim();
@@ -65,6 +71,11 @@ public class AddMovieController implements Initializable {
         }
     }
 
+    /**
+     * Method to handle the action that happens when you click the Cancel button
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void cancelNewMovie(ActionEvent event) throws IOException {
         Parent Mainparent = FXMLLoader.load(getClass().getResource("/sample/gui/View/Main.fxml"));

@@ -42,6 +42,11 @@ public class CategoryDAO {
         } return allCategories;
     }
 
+    /**
+     * Adds a category to the list in the database
+     * @param name Name of the category
+     * @return
+     */
     public Category createCategory(String name)
     {
         String sql = "INSERT INTO Category(Name) VALUES(?);";
@@ -57,6 +62,10 @@ public class CategoryDAO {
         return category;
     }
 
+    /**
+     * Deleting a category from the database
+     * @param categoryToDelete The category to delete
+     */
     public void deleteCategory(Category categoryToDelete) {
         try (Connection con = connectionPool.checkOut()) {
             String query = "DELETE FROM Category WHERE CatId =?;";

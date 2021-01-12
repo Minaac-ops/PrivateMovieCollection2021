@@ -51,6 +51,12 @@ public class EditRatingController implements Initializable {
 
     }
 
+    /**
+     * Method to handle the action that happens when you click to save the new rating
+     * @param event
+     * @throws IOException
+     * @throws SQLException
+     */
     @FXML
     public void handleSaveRating(ActionEvent event) throws IOException, SQLException {
         int id = lstCatMov.getSelectionModel().getSelectedItem().getID();
@@ -59,6 +65,11 @@ public class EditRatingController implements Initializable {
         editLabel.setText("You have changed rating on " + lstCatMov.getSelectionModel().getSelectedItem().getName() + "!");
     }
 
+    /**
+     * Method to handle the action that happens when you click the Cancel button
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void cancelEditRating(ActionEvent event) throws IOException {
         Parent Mainparent = FXMLLoader.load(getClass().getResource("/sample/gui/View/Main.fxml"));

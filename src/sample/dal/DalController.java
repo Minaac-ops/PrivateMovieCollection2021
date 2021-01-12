@@ -124,11 +124,22 @@ public class DalController implements dalInterface {
         movierepo.editMovieRating(id, rating);
     }
 
+    /**
+     * Gets a list of the movies in the chosen category
+     * @param id
+     * @return
+     * @throws SQLException
+     */
     @Override
     public List<Movie> getCatMovies(int id) throws SQLException {
         return catmovierepo.getAllCatmovies(id);
     }
 
+    /**
+     * Gets a list of the bad movies
+     * @return
+     * @throws SQLException
+     */
     @Override
     public List<Movie> getBadMovies() throws SQLException {
         return movierepo.getBadMovies();
