@@ -122,7 +122,15 @@ public class MainController implements Initializable {
     @FXML
     public void handleDeleteMovie(ActionEvent event) {
         Movie movieToDelete = lstCatMov.getSelectionModel().getSelectedItem();
-        movieModel.deleteMovie(movieToDelete);
+        lstCatMov.getItems().remove(movieToDelete);
+        if (movieToDelete != null) {
+            try {
+                movieModel.deleteMovie(movieToDelete);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+
     }
 
 }

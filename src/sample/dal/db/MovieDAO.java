@@ -86,10 +86,10 @@ public class MovieDAO
 
     public void deleteMovie(Movie movieToDelete) {
         try (Connection con = connectionPool.checkOut()){
-            String query = "DELETE FROM Movie WHERE MovieId = ?;";
+            String query = "DELETE FROM Movie WHERE Name = ?;";
             PreparedStatement st = con.prepareStatement(query);
-            st.setInt(1, movieToDelete.getID());
-            st.execute();
+            st.setString(1, movieToDelete.getName());
+            st.executeUpdate();
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();

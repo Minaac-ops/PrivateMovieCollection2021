@@ -59,5 +59,6 @@
             <Font name="Bauhaus 93" size="14.0" />
          </font>
       </Text>
+      <TextField fx:id="lastViewField" layoutX="186.0" layoutY="299.0" />
    </children>
 </AnchorPane>
