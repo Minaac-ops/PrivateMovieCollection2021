@@ -24,19 +24,19 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <TableView fx:id="lstCatMov" layoutX="200.0" layoutY="147.0" prefHeight="220.0" prefWidth="430.0">
+      <TableView fx:id="lstCatMov" layoutX="220.0" layoutY="268.0" prefHeight="105.0" prefWidth="430.0">
         <columns>
           <TableColumn fx:id="nameSongColumn" prefWidth="280.0" style="-fx-background-color: #a6a0a0;" text="Name" />
           <TableColumn fx:id="durationcolumn" prefWidth="75.0" style="-fx-background-color: #a6a0a0;" text="Duration" />
             <TableColumn fx:id="ratingcolumn" prefWidth="75.0" style="-fx-background-color: #a6a0a0;" text="Rating" />
         </columns>
       </TableView>
-      <Button layoutX="191.0" layoutY="374.0" mnemonicParsing="false" onAction="#clickAddMovie" prefHeight="28.0" prefWidth="109.0" style="-fx-background-color: #20120F;" text="ADD MOVIE" textAlignment="RIGHT" textFill="#0bee34">
+      <Button layoutX="220.0" layoutY="374.0" mnemonicParsing="false" onAction="#clickAddMovie" prefHeight="28.0" prefWidth="109.0" style="-fx-background-color: #20120F;" text="ADD MOVIE" textAlignment="RIGHT" textFill="#0bee34">
          <font>
             <Font name="Bauhaus 93" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="294.0" layoutY="374.0" mnemonicParsing="false" onAction="#handleDeleteMovie" prefHeight="31.0" prefWidth="136.0" style="-fx-background-color: #20120F;" text="REMOVE MOVIE" textFill="#0bee34">
+      <Button layoutX="329.0" layoutY="374.0" mnemonicParsing="false" onAction="#handleDeleteMovie" prefHeight="31.0" prefWidth="136.0" style="-fx-background-color: #20120F;" text="REMOVE MOVIE" textFill="#0bee34">
          <font>
             <Font name="Bauhaus 93" size="16.0" />
          </font>
@@ -51,7 +51,7 @@
             <Font name="Bauhaus 93" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="512.0" layoutY="390.0" mnemonicParsing="false" onAction="#handleEditRating" prefHeight="31.0" prefWidth="127.0" style="-fx-background-color: #a6a0a0;" text="EDIT RATING" textFill="#f508e1">
+      <Button layoutX="518.0" layoutY="381.0" mnemonicParsing="false" onAction="#handleEditRating" prefHeight="31.0" prefWidth="127.0" style="-fx-background-color: #a6a0a0;" text="EDIT RATING" textFill="#f508e1">
          <font>
             <Font name="Bauhaus 93" size="18.0" />
          </font>
@@ -78,5 +78,10 @@
             <Font name="Bauhaus 93" size="14.0" />
          </font>
       </Text>
+      <TableView fx:id="lstAllMovies" layoutX="220.0" layoutY="136.0" prefHeight="113.0" prefWidth="430.0">
+        <columns>
+          <TableColumn prefWidth="428.6666717529297" style="-fx-background-color: #a6a0a0;" text="ALL MOVIES" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
