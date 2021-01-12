@@ -31,11 +31,17 @@ import java.util.ResourceBundle;
 public class MainController implements Initializable {
 
     public final MovieModel movieModel;
+    private ObservableList<Movie> movieObservableList;
 
     public final CategoryModel categoryModel;
     private ObservableList<Category> observableListCategory;
 
 
+
+    @FXML
+    public TableView<Movie> lstAllMovies;
+    @FXML
+    public TableColumn<Movie, String> movieColumn;
     @FXML
     public TableView<Category> lstCat;
     @FXML
@@ -60,6 +66,7 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         observableListCategory = categoryModel.getCategories();
+        movieObservableList = movieModel.getAllMovies();
 
         durationcolumn.setCellValueFactory(new PropertyValueFactory<>("Duration"));
         nameSongColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
@@ -67,6 +74,9 @@ public class MainController implements Initializable {
 
         lstCat.setItems(observableListCategory);
         catNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+        lstAllMovies.setItems(movieObservableList);
+        movieColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
         doubleClickListener();
     }
@@ -151,11 +161,11 @@ public class MainController implements Initializable {
     @FXML
     public void handleSearchMovie(ActionEvent event) {
         if (searchMovieTxt.getText() == null || searchMovieTxt.getText().length() <= 0 ) {
-            lstCatMov.setItems(movieModel.getAllMovies());
+            lstAllMovies.setItems(movieModel.getAllMovies());
         }
         else {
             ObservableList<Movie> foundMovie = movieModel.search(movieModel.getAllMovies(),searchMovieTxt.getText());
-            lstCatMov.setItems(foundMovie);
+            lstAllMovies.setItems(foundMovie);
         }
     }
 

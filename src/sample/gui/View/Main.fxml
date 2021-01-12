@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="486.0" prefWidth="664.0" style="-fx-background-color: #20120F;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.gui.controller.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="486.0" prefWidth="664.0" style="-fx-background-color: #20120f;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.gui.controller.MainController">
 
    <children>
       <Text fill="#f508e1" layoutX="14.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MOVIE">
@@ -24,19 +24,19 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <TableView fx:id="lstCatMov" layoutX="220.0" layoutY="268.0" prefHeight="105.0" prefWidth="430.0">
+      <TableView fx:id="lstCatMov" layoutX="223.0" layoutY="297.0" prefHeight="122.0" prefWidth="423.0">
         <columns>
           <TableColumn fx:id="nameSongColumn" prefWidth="280.0" style="-fx-background-color: #a6a0a0;" text="Name" />
-          <TableColumn fx:id="durationcolumn" prefWidth="75.0" style="-fx-background-color: #a6a0a0;" text="Duration" />
-            <TableColumn fx:id="ratingcolumn" prefWidth="75.0" style="-fx-background-color: #a6a0a0;" text="Rating" />
+          <TableColumn fx:id="durationcolumn" prefWidth="70.0" style="-fx-background-color: #a6a0a0;" text="Duration" />
+            <TableColumn fx:id="ratingcolumn" prefWidth="70.0" style="-fx-background-color: #a6a0a0;" text="Rating" />
         </columns>
       </TableView>
-      <Button layoutX="220.0" layoutY="374.0" mnemonicParsing="false" onAction="#clickAddMovie" prefHeight="28.0" prefWidth="109.0" style="-fx-background-color: #20120F;" text="ADD MOVIE" textAlignment="RIGHT" textFill="#0bee34">
+      <Button layoutX="211.0" layoutY="258.0" mnemonicParsing="false" onAction="#clickAddMovie" prefHeight="28.0" prefWidth="109.0" style="-fx-background-color: #20120F;" text="ADD MOVIE" textAlignment="RIGHT" textFill="#0bee34">
          <font>
             <Font name="Bauhaus 93" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="329.0" layoutY="374.0" mnemonicParsing="false" onAction="#handleDeleteMovie" prefHeight="31.0" prefWidth="136.0" style="-fx-background-color: #20120F;" text="REMOVE MOVIE" textFill="#0bee34">
+      <Button layoutX="311.0" layoutY="258.0" mnemonicParsing="false" onAction="#handleDeleteMovie" prefHeight="31.0" prefWidth="136.0" style="-fx-background-color: #20120F;" text="REMOVE MOVIE" textFill="#0bee34">
          <font>
             <Font name="Bauhaus 93" size="16.0" />
          </font>
@@ -51,7 +51,7 @@
             <Font name="Bauhaus 93" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="518.0" layoutY="381.0" mnemonicParsing="false" onAction="#handleEditRating" prefHeight="31.0" prefWidth="127.0" style="-fx-background-color: #a6a0a0;" text="EDIT RATING" textFill="#f508e1">
+      <Button layoutX="522.0" layoutY="429.0" mnemonicParsing="false" onAction="#handleEditRating" prefHeight="31.0" prefWidth="127.0" style="-fx-background-color: #a6a0a0;" text="EDIT RATING" textFill="#f508e1">
          <font>
             <Font name="Bauhaus 93" size="18.0" />
          </font>
@@ -73,14 +73,9 @@
             <Font name="Bauhaus 93" size="13.0" />
          </font>
       </Text>
-      <Text fill="#02e7f3" layoutX="332.0" layoutY="466.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;Just keep swimming&quot; - Finding Nemo">
-         <font>
-            <Font name="Bauhaus 93" size="14.0" />
-         </font>
-      </Text>
-      <TableView fx:id="lstAllMovies" layoutX="220.0" layoutY="136.0" prefHeight="113.0" prefWidth="430.0">
+      <TableView fx:id="lstAllMovies" layoutX="223.0" layoutY="136.0" prefHeight="122.0" prefWidth="423.0">
         <columns>
-          <TableColumn prefWidth="428.6666717529297" style="-fx-background-color: #a6a0a0;" text="ALL MOVIES" />
+          <TableColumn fx:id="movieColumn" prefWidth="423.0" style="-fx-background-color: #a6a0a0;" text="ALL MOVIES" />
         </columns>
       </TableView>
    </children>
