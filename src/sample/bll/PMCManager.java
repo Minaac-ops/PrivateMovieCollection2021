@@ -43,7 +43,7 @@ public class PMCManager implements Logicfacade {
      * @return A new movie.
      */
     @Override
-    public Movie addMovie(String name, int year, String path, int duration, String rating, int lastView) throws SQLException {
+    public Movie addMovie(String name, int year, String path, int duration, String rating, String lastView) throws SQLException {
         return dalController.addMovie(name, year, path, duration, rating, lastView);
     }
 

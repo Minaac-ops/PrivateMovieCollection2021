@@ -33,7 +33,7 @@ public class MovieModel {
         return logicfacade.search((ObservableList<Movie>)searchfilter, query);
     }
 
-    public void addMovie(String name, int year, String path, int duration, String rating, int lastView) throws SQLException {
+    public void addMovie(String name, int year, String path, int duration, String rating, String lastView) throws SQLException {
         Movie movie = logicfacade.addMovie(name, year, path, duration, rating, lastView);
         allMovies.add(movie);
     }

@@ -45,7 +45,7 @@ public interface dalInterface {
      * @param duration The duration of the movie in minutes.
      * @return a movie object.
      */
-    Movie addMovie(String name, int year, String path, int duration, String rating, int lastView) throws SQLException;
+    Movie addMovie(String name, int year, String path, int duration, String rating, String lastView) throws SQLException;
 
     /**
      * Deletes a movie from the database.

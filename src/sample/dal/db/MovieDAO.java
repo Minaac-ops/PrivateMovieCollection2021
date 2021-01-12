@@ -2,6 +2,7 @@ package sample.dal.db;
 
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import javafx.stage.Stage;
+import sample.be.Category;
 import sample.be.Movie;
 
 import java.io.IOException;
@@ -31,7 +32,7 @@ public class MovieDAO
                 String name = rs.getString("Name");
                 String rating = rs.getString("Rating");
                 String path = rs.getString("Filelink");
-                int lastView = rs.getInt("Lastview");
+                String lastView = rs.getString("Lastview");
                 int year = rs.getInt("Year");
                 int duration = rs.getInt("Duration");
 
@@ -51,7 +52,7 @@ public class MovieDAO
      * @param lastView
      * @return the new movie.
      */
-    public Movie addMovie(String name, int year, String path, int duration, String rating, int lastView) throws SQLException {
+    public Movie addMovie(String name, int year, String path, int duration, String rating, String lastView) throws SQLException {
         String sql = "INSERT INTO Movie (Name, Year, Duration, Rating, Filelink, LastView) VALUES (?,?,?,?,?,?);";
         try (Connection con = connectionPool.checkOut();
              PreparedStatement st = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
@@ -60,7 +61,7 @@ public class MovieDAO
             st.setInt(3, duration);
             st.setString(4, rating);
             st.setString(5, path);
-            st.setInt(6, lastView);
+            st.setString(6, lastView);
 
             st.executeUpdate();
             ResultSet rs = st.getGeneratedKeys();
@@ -69,9 +70,13 @@ public class MovieDAO
             if (rs.next()) {
                 id = rs.getInt(1);
             }
+
+            Category category = new Category(rs.getInt("CatId"), rs.getString("name"));
+
             Movie movie = new Movie(id, name, year, path, duration, rating, lastView);
             return movie;
-        }
+        }//Movie movie = new Movie(rs.getInt("CatMovId"), rs.getString("Name"), rs.getInt("Year"), rs.getString("Filelink"), rs.getInt("Duration"), rs.getString("Rating"), rs.getInt("LastView"));
+        //movie.setCatMovId(rs.getInt("CatMovId"))
     }
 
     public void editMovieRating(int id, String rating) throws SQLException, IOException {
@@ -114,7 +119,7 @@ public class MovieDAO
                 String name = rs.getString("Name");
                 String rating = rs.getString("Rating");
                 String path = rs.getString("Filelink");
-                int lastView = rs.getInt("Lastview");
+                String lastView = rs.getString("Lastview");
                 int year = rs.getInt("Year");
                 int duration = rs.getInt("Duration");
 

@@ -55,7 +55,7 @@ public class AddMovieController implements Initializable {
         int duration = Integer.parseInt(movieDuration.getText().trim());
         String rating = movieRating.getText().trim();
         String path = moviePath.getText().trim();
-        int lastView = Integer.parseInt(lastViewField.getText().trim());
+        String lastView = lastViewField.getText().trim();
 
 
         movieModel.addMovie(name, year, path, duration, rating, lastView);

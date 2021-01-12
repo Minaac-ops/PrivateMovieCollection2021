@@ -19,10 +19,10 @@ public class Movie {
     private String path;
     private int duration;
     private String rating;
-    private int lastView;
+    private String lastView;
     private int catMovId;
 
-    public Movie(int id, String name, int year, String path, int duration, String rating, int lastView) {
+    public Movie(int id, String name, int year, String path, int duration, String rating, String lastView) {
         this.id = id;
         this.name = name;
         this.year = year;
@@ -105,7 +105,7 @@ public class Movie {
         this.rating = rating;
     }
 
-    public int getLastView()
+    public String getLastView()
     {
         return lastView;
     }
