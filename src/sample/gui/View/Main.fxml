@@ -75,8 +75,9 @@
       </Text>
       <TableView fx:id="lstAllMovies" layoutX="223.0" layoutY="136.0" prefHeight="122.0" prefWidth="423.0">
         <columns>
-          <TableColumn fx:id="movieColumn" prefWidth="423.0" style="-fx-background-color: #a6a0a0;" text="ALL MOVIES" />
+          <TableColumn fx:id="movieColumn" prefWidth="420.0" style="-fx-background-color: #a6a0a0;" text="ALL MOVIES" />
         </columns>
       </TableView>
+      <Button layoutX="196.0" layoutY="136.0" mnemonicParsing="false" onAction="#handleMoveToGenre" prefHeight="25.0" prefWidth="29.0" style="-fx-background-color: #a6a0a0;" text="⬅" />
    </children>
 </AnchorPane>
