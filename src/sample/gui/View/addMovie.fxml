@@ -6,59 +6,78 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="471.0" prefWidth="383.0" style="-fx-background-color: #20120F;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.gui.controller.AddMovieController">
+<AnchorPane prefHeight="486.0" prefWidth="664.0" style="-fx-background-color: #20120F;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.gui.controller.AddMovieController">
    <children>
-      <TextField fx:id="nameMovie" layoutX="19.0" layoutY="81.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #a6a0a0;" />
-      <Button layoutX="229.0" layoutY="431.0" mnemonicParsing="false" onAction="#handleAddMovbtn" style="-fx-background-color: #20120F;" text="ADD" textFill="#f508e1">
+      <TextField fx:id="nameMovie" layoutX="18.0" layoutY="146.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #a6a0a0;" />
+      <Button layoutX="492.0" layoutY="440.0" mnemonicParsing="false" onAction="#handleAddMovbtn" style="-fx-background-color: #20120F;" text="ADD" textFill="#f508e1">
          <font>
             <Font name="Bauhaus 93" size="18.0" />
          </font>
       </Button>
-      <Text fill="#0bee34" layoutX="89.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NEW MOVIE">
+      <Text fill="#0bee34" layoutX="209.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NEW MOVIE">
          <font>
-            <Font name="Bauhaus 93" size="37.0" />
+            <Font name="Bauhaus 93" size="44.0" />
          </font>
       </Text>
-      <Text fill="#0aebe0" layoutX="19.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+      <Text fill="#02c7f3" layoutX="19.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
          <font>
-            <Font name="Bauhaus 93" size="14.0" />
+            <Font name="Bauhaus 93" size="16.0" />
          </font>
       </Text>
-      <Text fill="#0aebe0" layoutX="17.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Year">
+      <Text fill="#02c7f3" layoutX="21.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Year">
          <font>
-            <Font name="Bauhaus 93" size="14.0" />
+            <Font name="Bauhaus 93" size="16.0" />
          </font>
       </Text>
-      <TextField fx:id="movieYear" layoutX="17.0" layoutY="137.0" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #a6a0a0;" />
-      <Text fill="#0aebe0" layoutX="17.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duration">
+      <TextField fx:id="movieYear" layoutX="17.0" layoutY="200.0" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #a6a0a0;" />
+      <Text fill="#02c7f3" layoutX="17.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duration">
          <font>
-            <Font name="Bauhaus 93" size="14.0" />
+            <Font name="Bauhaus 93" size="16.0" />
          </font>
       </Text>
-      <TextField fx:id="movieDuration" layoutX="17.0" layoutY="265.0" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #a6a0a0;" />
-      <Text fill="#0aebe0" layoutX="17.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating">
+      <TextField fx:id="movieDuration" layoutX="17.0" layoutY="321.0" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #a6a0a0;" />
+      <Text fill="#02c7f3" layoutX="15.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating">
          <font>
-            <Font name="Bauhaus 93" size="14.0" />
+            <Font name="Bauhaus 93" size="16.0" />
          </font>
       </Text>
-      <TextField fx:id="movieRating" layoutX="19.0" layoutY="327.0" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #a6a0a0;" />
-      <Text fill="#0aebe0" layoutX="23.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Path">
+      <TextField fx:id="movieRating" layoutX="17.0" layoutY="380.0" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #a6a0a0;" />
+      <Text fill="#02c7f3" layoutX="16.0" layoutY="428.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Path">
          <font>
-            <Font name="Bauhaus 93" size="14.0" />
+            <Font name="Bauhaus 93" size="16.0" />
          </font>
       </Text>
-      <TextField fx:id="moviePath" layoutX="17.0" layoutY="386.0" prefHeight="25.0" prefWidth="257.0" style="-fx-background-color: #a6a0a0;" />
-      <Button layoutX="291.0" layoutY="431.0" mnemonicParsing="false" onAction="#cancelNewMovie" style="-fx-background-color: #20120F;" text="CANCEL" textFill="#f508e1">
+      <TextField fx:id="moviePath" layoutX="14.0" layoutY="440.0" prefHeight="25.0" prefWidth="257.0" style="-fx-background-color: #a6a0a0;" />
+      <Button layoutX="554.0" layoutY="440.0" mnemonicParsing="false" onAction="#cancelNewMovie" style="-fx-background-color: #20120F;" text="CANCEL" textFill="#f508e1">
          <font>
             <Font name="Bauhaus 93" size="18.0" />
          </font>
       </Button>
-      <TextField fx:id="categoryField" layoutX="17.0" layoutY="198.0" style="-fx-background-color: #a6a0a0;" />
-      <Text fill="#0aebe0" layoutX="19.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Genre">
+      <TextField fx:id="categoryField" layoutX="19.0" layoutY="258.0" style="-fx-background-color: #a6a0a0;" />
+      <Text fill="#02c7f3" layoutX="18.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Genre">
+         <font>
+            <Font name="Bauhaus 93" size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#f508e1" layoutX="186.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add a Movie That You Like">
+         <font>
+            <Font name="Bauhaus 93" size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#02e7f3" layoutX="281.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;You're gonna need a bigger boat.&quot; - Jaws, " wrappingWidth="350.94525146484375">
+         <font>
+            <Font name="Bauhaus 93" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#02e7f3" layoutX="224.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;I feel the need - the need for speed!&quot; - Top Gun," wrappingWidth="307.69561767578125">
+         <font>
+            <Font name="Bauhaus 93" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="YELLOW" layoutX="378.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hope It Is a Good One">
          <font>
             <Font name="Bauhaus 93" size="14.0" />
          </font>
       </Text>
-      <TextField fx:id="lastViewField" layoutX="186.0" layoutY="299.0" />
    </children>
 </AnchorPane>
