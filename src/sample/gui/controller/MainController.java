@@ -97,6 +97,22 @@ public class MainController implements Initializable {
                 }
             }
         });
+
+        lstAllMovies.setOnMouseClicked((MouseEvent event) -> {
+            if(event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
+                Movie clickedMovie = lstAllMovies.getSelectionModel().getSelectedItem();
+                try {
+                    File f = new File(clickedMovie.getPath());
+                    if (f.isFile() && !f.isDirectory()) {
+                        Desktop.getDesktop().open(f);
+                    } else {
+                        System.out.println("File not found: " + clickedMovie.getPath());
+                    }
+                } catch(IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     /**
