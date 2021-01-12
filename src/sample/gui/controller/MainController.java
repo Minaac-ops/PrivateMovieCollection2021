@@ -201,16 +201,11 @@ public class MainController implements Initializable {
      */
     @FXML
     public void handleDeleteMovie(ActionEvent event) {
-        Movie movieToDelete = lstCatMov.getSelectionModel().getSelectedItem();
-        lstCatMov.getItems().remove(movieToDelete);
+        Movie movieToDelete = lstAllMovies.getSelectionModel().getSelectedItem();
         if (movieToDelete != null) {
-            try {
-                movieModel.deleteMovie(movieToDelete);
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
-
+        movieModel.deleteMovie(movieToDelete);
+        lstCatMov.getItems().remove(movieToDelete);
+        } else System.out.println("You have to Choose a movie to delete!");
     }
 
 }

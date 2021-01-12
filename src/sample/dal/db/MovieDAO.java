@@ -106,10 +106,15 @@ public class MovieDAO
      */
     public void deleteMovie(Movie movieToDelete) {
         try (Connection con = connectionPool.checkOut()){
-            String query = "DELETE FROM Movie WHERE Name = ?;";
-            PreparedStatement st = con.prepareStatement(query);
-            st.setString(1, movieToDelete.getName());
-            st.executeUpdate();
+            PreparedStatement st1 = con.prepareStatement("DELETE FROM CatMovie WHERE MovieId = ?;");
+            st1.setInt(1, movieToDelete.getID());
+
+            PreparedStatement st2 = con.prepareStatement("DELETE FROM Movie WHERE MovieId = ?;");
+            st2.setInt(1, movieToDelete.getID());
+
+            st1.executeUpdate();
+            st2.executeUpdate();
+
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -167,21 +172,6 @@ public class MovieDAO
                 oldMovies.add(movie);
             }
         } return oldMovies;
-    }
-
-    /**
-     * Method for deleting the bad movies with rating under 5 and movies you haven't seen in a while
-     * @param badMovieToDelete the bad movie to delete
-     */
-    public void deleteBadMovies (Movie badMovieToDelete){
-        try(Connection con = connectionPool.checkOut()) {
-            String query = "DELETE FROM Movie WHERE Rating <= 5.0;";
-            PreparedStatement st = con.prepareStatement(query);
-            st.execute();
-
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
     }
 }
 

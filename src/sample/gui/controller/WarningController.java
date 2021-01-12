@@ -57,12 +57,17 @@ public class WarningController implements Initializable {
      * @throws IOException
      */
     @FXML
-    public void handleOk(ActionEvent event) throws IOException {
-        Parent MainParent = FXMLLoader.load(getClass().getResource("/sample/gui/View/Main.fxml"));
-        Scene MainScene = new Scene(MainParent);
-        Stage MainStage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        MainStage.setScene(MainScene);
-        MainStage.show();
+    public void handleOk(ActionEvent event) {
+        Movie badMovie = lstBadMovies.getSelectionModel().getSelectedItem();
+        Movie oldMovie = lstOldMovies.getSelectionModel().getSelectedItem();
+
+        if (badMovie != null && oldMovie == null) {
+            movieModel.deleteMovie(badMovie);
+            lstBadMovies.getItems().remove(badMovie);
+        } else if (badMovie == null && oldMovie != null) {
+            movieModel.deleteMovie(oldMovie);
+            lstOldMovies.getItems().remove(oldMovie);
+        } else System.out.println("You have to choose a movie to delete first.");
     }
 
     /**
