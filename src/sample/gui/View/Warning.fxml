@@ -34,9 +34,9 @@
             <Font name="Bauhaus 93" size="18.0" />
          </font>
       </Button>
-      <TableView fx:id="lstBadMovies" layoutX="36.0" layoutY="170.0" prefHeight="286.0" prefWidth="146.0">
+      <TableView fx:id="lstBadMovies" layoutX="36.0" layoutY="170.0" prefHeight="286.0" prefWidth="140.0">
         <columns>
-          <TableColumn fx:id="badNameColumn" prefWidth="141.60003662109375" style="-fx-background-color: #a6a0a0;" text="Underrated" />
+          <TableColumn fx:id="badNameColumn" prefWidth="140.0" style="-fx-background-color: #a6a0a0;" text="Underrated" />
         </columns>
       </TableView>
       <Text fill="#0bee34" layoutX="303.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Movie You Have Not Watch In A While">
@@ -54,9 +54,9 @@
             <Font name="Bauhaus 93" size="14.0" />
          </font>
       </Text>
-      <TableView fx:id="lstOldMovies" layoutX="183.0" layoutY="170.0" prefHeight="286.0" prefWidth="146.0">
+      <TableView fx:id="lstOldMovies" layoutX="176.0" layoutY="170.0" prefHeight="286.0" prefWidth="140.0">
         <columns>
-          <TableColumn fx:id="oldNameColumn" prefWidth="145.60001220703126" text="Old movies" />
+          <TableColumn fx:id="oldNameColumn" prefWidth="140.0" style="-fx-background-color: #a6a0a0;" text="Old movies" />
         </columns>
       </TableView>
    </children>
