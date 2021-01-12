@@ -6,23 +6,43 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="138.0" prefWidth="295.0" style="-fx-background-color: #20120F;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.gui.controller.AddCategoryController">
+<AnchorPane prefHeight="486.0" prefWidth="664.0" style="-fx-background-color: #20120F;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.gui.controller.AddCategoryController">
    <children>
-      <Button layoutX="129.0" layoutY="92.0" mnemonicParsing="false" onAction="#handleAddCatbtn" prefHeight="25.0" prefWidth="62.0" style="-fx-background-color: #20120F;" text="ADD" textFill="#f508e1">
+      <Button layoutX="489.0" layoutY="440.0" mnemonicParsing="false" onAction="#handleAddCatbtn" prefHeight="25.0" prefWidth="62.0" style="-fx-background-color: #20120F;" text="ADD" textFill="#f508e1">
          <font>
             <Font name="Bauhaus 93" size="18.0" />
          </font>
       </Button>
-      <TextField fx:id="txtName" layoutX="22.0" layoutY="57.0" prefHeight="25.0" prefWidth="183.0" style="-fx-background-color: #a6a0a0;" />
-      <Text fill="#0bee34" layoutX="22.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NEW CATEGORY">
+      <TextField fx:id="txtName" layoutX="200.0" layoutY="217.0" prefHeight="24.0" prefWidth="235.0" style="-fx-background-color: #a6a0a0;" />
+      <Text fill="#0bee34" layoutX="200.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NEW GENRE">
          <font>
-            <Font name="Bauhaus 93" size="22.0" />
+            <Font name="Bauhaus 93" size="46.0" />
          </font>
       </Text>
-      <Button layoutX="193.0" layoutY="92.0" mnemonicParsing="false" onAction="#cancelNewCategory" style="-fx-background-color: #20120F;" text="CANCEL" textFill="#f508e1">
+      <Button layoutX="562.0" layoutY="440.0" mnemonicParsing="false" onAction="#cancelNewCategory" style="-fx-background-color: #20120F;" text="CANCEL" textFill="#f508e1">
          <font>
             <Font name="Bauhaus 93" size="18.0" />
          </font>
       </Button>
+      <Text fill="YELLOW" layoutX="217.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Is Your Favorit Missing">
+         <font>
+            <Font name="Bauhaus 93" size="20.0" />
+         </font>
+      </Text>
+      <Text fill="YELLOW" layoutX="200.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD NEW GENRE">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#02e7f3" layoutX="14.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;Hasta la vista, baby.&quot; - Terminator 2:">
+         <font>
+            <Font name="Bauhaus 93" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#02e7f3" layoutX="56.0" layoutY="456.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;Here's Johnny!&quot; - The Shining, ">
+         <font>
+            <Font name="Bauhaus 93" size="18.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
