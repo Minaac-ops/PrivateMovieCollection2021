@@ -16,7 +16,7 @@
             <Font name="Bauhaus 93" size="83.0" />
          </font>
       </Text>
-      <TableView fx:id="lstCat" layoutX="14.0" layoutY="136.0" onMouseClicked="#handleGetCatMovies" prefHeight="305.0" prefWidth="165.0" style="-fx-background-image: #20120F;">
+      <TableView fx:id="lstCat" layoutX="14.0" layoutY="136.0" onMouseClicked="#handleGetCatMovies" prefHeight="305.0" prefWidth="165.0" style="-fx-background-color: #20120F;">
         <columns>
           <TableColumn fx:id="catNameColumn" prefWidth="165.33330821990967" style="-fx-background-color: #a6a0a0;" text="GENRE" />
         </columns>
