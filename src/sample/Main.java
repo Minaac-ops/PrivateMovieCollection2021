@@ -12,7 +12,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("gui/View/Warning.fxml"));
         primaryStage.setTitle("Why so serious ?");
-        primaryStage.setScene(new Scene(root, 650, 450));
+        primaryStage.setScene(new Scene(root, 664, 486));
         primaryStage.show();
     }
 
