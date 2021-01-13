@@ -180,7 +180,7 @@ public class MainController implements Initializable {
             lstAllMovies.setItems(movieModel.getAllMovies());
         }
         else {
-            ObservableList<Movie> foundMovie = movieModel.search(movieModel.getAllMovies(),searchMovieTxt.getText());
+            ObservableList<Movie> foundMovie = movieModel.search(movieModel.getAllMovies(), searchMovieTxt.getText());
             lstAllMovies.setItems(foundMovie);
         }
     }

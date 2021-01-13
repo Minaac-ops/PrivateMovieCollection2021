@@ -110,7 +110,9 @@ public class PMCManager implements Logicfacade {
      */
     @Override
     public ObservableList<Movie> search(ObservableList<Movie> searchfilter, String query) {
-        return null;
+        ObservableList<Movie> foundMovies = FXCollections.observableArrayList();
+        foundMovies.addAll(movieSearcher.search(searchfilter, query));
+        return foundMovies;
     }
 
     /**
