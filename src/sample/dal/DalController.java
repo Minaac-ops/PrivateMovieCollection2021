@@ -150,4 +150,9 @@ public class DalController implements dalInterface {
         return movierepo.getOldMovies();
     }
 
+    @Override
+    public void addGenre(Movie movie, Category category) throws SQLException {
+        catmovierepo.addGenre(movie, category);
+    }
+
 }

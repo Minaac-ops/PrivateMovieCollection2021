@@ -41,7 +41,9 @@ public class MovieDAO
                 int year = rs.getInt("Year");
                 int duration = rs.getInt("Duration");
 
-                Movie movie = new Movie (id, name, year, path, duration, rating, lastView);
+
+
+                Movie movie = new Movie(id, name, year, path, duration, rating, lastView);
                 allMovies.add(movie);
             }
         } return allMovies;
@@ -65,6 +67,7 @@ public class MovieDAO
             st.setString(4, rating);
 
             st.executeUpdate();
+
             ResultSet rs = st.getGeneratedKeys();
             int id = 0;
             String path = null;
@@ -73,7 +76,6 @@ public class MovieDAO
             if (rs.next()) {
                 id = rs.getInt(1);
             }
-
             Movie movie = new Movie(id, name, year, path, duration, rating, lastView);
             return movie;
         }

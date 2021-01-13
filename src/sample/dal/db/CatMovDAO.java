@@ -1,6 +1,7 @@
 package sample.dal.db;
 
 import com.microsoft.sqlserver.jdbc.SQLServerException;
+import sample.be.Category;
 import sample.be.Movie;
 
 import java.io.IOException;
@@ -36,5 +37,16 @@ public class CatMovDAO {
             }
         }
         return newMovieList;
+    }
+
+    public void addGenre(Movie movie, Category category) throws SQLException {
+        String sql2 = "INSERT INTO CatMovie(CategoryId, MovieId) VALUES(?,?);";
+        try (Connection con = connectionPool.checkOut();
+             PreparedStatement st = con.prepareStatement(sql2, Statement.RETURN_GENERATED_KEYS)){
+            st.setInt(1, category.getID());
+            st.setInt(2, movie.getID());
+
+            st.executeUpdate();
+        }
     }
 }

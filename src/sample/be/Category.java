@@ -10,6 +10,7 @@ public class Category {
     private List<Movie> movieList;
     private int id;
     private String name;
+    private int catMovId;
 
     public Category(int id, String name)
     {
@@ -17,6 +18,13 @@ public class Category {
         this.name = name;
     }
 
+    public int getCatMovId() {
+        return id;
+    }
+
+    public void setCatmovId(int catMovId) {
+        this.catMovId = catMovId;
+    }
     public int getID()
     {
         return id;

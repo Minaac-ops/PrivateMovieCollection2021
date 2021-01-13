@@ -136,4 +136,9 @@ public class PMCManager implements Logicfacade {
     public List<Movie> getOldMovies() throws SQLException {
         return dalController.getOldMovies();
     }
+
+    @Override
+    public void addGenre(Movie movie, Category category) throws SQLException {
+        dalController.addGenre(movie, category);
+    }
 }

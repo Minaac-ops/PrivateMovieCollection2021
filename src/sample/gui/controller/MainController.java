@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -57,6 +58,8 @@ public class MainController implements Initializable {
     public TableColumn<Movie, Float> ratingcolumn;
     @FXML
     public TextField searchMovieTxt;
+    @FXML
+    public Label addGenreLabel;
 
     public MainController() throws IOException, SQLException {
         categoryModel = new CategoryModel();
@@ -229,4 +232,15 @@ public class MainController implements Initializable {
         alert.showAndWait();
     }
 
+    @FXML
+    public void handleAddGenre(ActionEvent event) throws SQLException {
+        Category category = lstCat.getSelectionModel().getSelectedItem();
+        Movie movie = lstAllMovies.getSelectionModel().getSelectedItem();
+        if (movie != null && category != null) {
+            movieModel.addGenre(movie, category);
+            addGenreLabel.setText("'It's what you do right now that makes a difference.' - Struecker");
+            lstCatMov.getItems().add(movie);
+        }
+    }
 }
+

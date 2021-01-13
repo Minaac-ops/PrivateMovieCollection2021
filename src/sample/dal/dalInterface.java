@@ -83,7 +83,9 @@ public interface dalInterface {
      * Gets a List of all bad movies from the database.
      * @return
      */
-    List<Movie> getBadMovies () throws SQLException;
+    List<Movie> getBadMovies() throws SQLException;
 
     List<Movie> getOldMovies() throws SQLException;
+
+    void addGenre(Movie movie, Category category) throws SQLException;
 }

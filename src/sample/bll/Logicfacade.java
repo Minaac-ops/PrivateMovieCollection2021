@@ -80,4 +80,6 @@ public interface Logicfacade {
 
     List<Movie> getOldMovies() throws SQLException;
 
+    void addGenre(Movie movie, Category category) throws SQLException;
+
 }

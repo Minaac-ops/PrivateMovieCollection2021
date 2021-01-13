@@ -2,6 +2,7 @@ package sample.gui.Model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import sample.be.Category;
 import sample.be.Movie;
 import sample.bll.Logicfacade;
 import sample.bll.PMCManager;
@@ -93,5 +94,9 @@ public class MovieModel {
 
     public ObservableList<Movie> getOldMovies() {
         return oldMovies;
+    }
+
+    public void addGenre(Movie movie, Category category) throws SQLException {
+        logicfacade.addGenre(movie, category);
     }
 }
