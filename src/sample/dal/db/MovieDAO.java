@@ -100,7 +100,7 @@ public class MovieDAO
      * Method for deleting a movie in the database
      * @param movieToDelete The movie to delete
      */
-    public void deleteMovie(Movie movieToDelete) {
+    public void deleteMovie(Movie movieToDelete) throws SQLException {
         try (Connection con = connectionPool.checkOut()){
             PreparedStatement st1 = con.prepareStatement("DELETE FROM CatMovie WHERE MovieId = ?;");
             st1.setInt(1, movieToDelete.getID());
@@ -110,8 +110,6 @@ public class MovieDAO
 
             st1.executeUpdate();
             st2.executeUpdate();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
         }
     }
 

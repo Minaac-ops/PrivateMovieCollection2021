@@ -15,13 +15,13 @@ public interface dalInterface {
      * @param name The name of the category.
      * @return The new category.
      */
-    Category addCategory(String name);
+    Category addCategory(String name) throws SQLException;
 
     /**
      * Deletes a category from the database,
      * @param categoryToDelete The category to delete.
      */
-    void deleteCategory(Category categoryToDelete);
+    void deleteCategory(Category categoryToDelete) throws SQLException;
 
     /**
      * Gets a list of all categories from the database.
@@ -51,7 +51,7 @@ public interface dalInterface {
      * Deletes a movie from the database.
      * @param movie The movie to delete.
      */
-    void deleteMovie(Movie movie);
+    void deleteMovie(Movie movie) throws SQLException;
 
     /**
      * Gets a list of all the movies from the database.

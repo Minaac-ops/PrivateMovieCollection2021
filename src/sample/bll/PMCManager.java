@@ -52,7 +52,7 @@ public class PMCManager implements Logicfacade {
      * @param movieToDelete The movie to delete.
      */
     @Override
-    public void deleteMovie(Movie movieToDelete) {
+    public void deleteMovie(Movie movieToDelete) throws SQLException{
         if (movieToDelete != null) {
             dalController.deleteMovie(movieToDelete);
         }
@@ -76,7 +76,7 @@ public class PMCManager implements Logicfacade {
      * @return The new category.
      */
     @Override
-    public Category addCategory(String name) {
+    public Category addCategory(String name) throws SQLException {
         return dalController.addCategory(name);
     }
 
@@ -86,7 +86,7 @@ public class PMCManager implements Logicfacade {
      * @param categoryToDelete
      */
     @Override
-    public void deleteCategory(Category categoryToDelete) {
+    public void deleteCategory(Category categoryToDelete) throws SQLException {
     if (categoryToDelete != null){
         dalController.deleteCategory(categoryToDelete);
     }

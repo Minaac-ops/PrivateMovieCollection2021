@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -192,7 +193,13 @@ public class MainController implements Initializable {
     @FXML
     public void handleDeleteCat(ActionEvent event) {
         Category categoryToDelete = lstCat.getSelectionModel().getSelectedItem();
-        categoryModel.deleteCategory(categoryToDelete);
+        try {
+            categoryModel.deleteCategory(categoryToDelete);
+
+        } catch (SQLException throwables) {
+            displayError(throwables);
+            throwables.printStackTrace();
+        }
     }
 
     /**
@@ -202,10 +209,24 @@ public class MainController implements Initializable {
     @FXML
     public void handleDeleteMovie(ActionEvent event) {
         Movie movieToDelete = lstAllMovies.getSelectionModel().getSelectedItem();
-        if (movieToDelete != null) {
+        if (movieToDelete != null)
+        try {
         movieModel.deleteMovie(movieToDelete);
         lstCatMov.getItems().remove(movieToDelete);
-        } else System.out.println("You have to Choose a movie to delete!");
+        }
+        catch (SQLException throwables) {
+            displayError(throwables);
+            throwables.printStackTrace();
+        }
+        else System.out.println("You have to Choose a movie to delete!");
+    }
+
+    public void displayError(Throwable throwable)
+    {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Here's Johnny");
+        alert.setHeaderText("Houston, we have a problem");
+        alert.showAndWait();
     }
 
 }

@@ -78,7 +78,7 @@ public class MovieModel {
      * Method for deleting a movie in the database
      * @param movieToDelete
      */
-    public void deleteMovie(Movie movieToDelete) {
+    public void deleteMovie(Movie movieToDelete) throws SQLException {
         logicfacade.deleteMovie(movieToDelete);
         allMovies.remove(movieToDelete);
     }

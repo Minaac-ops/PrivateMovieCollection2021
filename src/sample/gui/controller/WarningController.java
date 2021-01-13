@@ -61,13 +61,23 @@ public class WarningController implements Initializable {
         Movie badMovie = lstBadMovies.getSelectionModel().getSelectedItem();
         Movie oldMovie = lstOldMovies.getSelectionModel().getSelectedItem();
 
-        if (badMovie != null && oldMovie == null) {
+        if (badMovie != null && oldMovie == null)
+        try {
             movieModel.deleteMovie(badMovie);
             lstBadMovies.getItems().remove(badMovie);
-        } else if (badMovie == null && oldMovie != null) {
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        else if (badMovie == null && oldMovie != null)
+        try{
             movieModel.deleteMovie(oldMovie);
             lstOldMovies.getItems().remove(oldMovie);
-        } else System.out.println("You have to choose a movie to delete first.");
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        else System.out.println("You have to choose a movie to delete first.");
     }
 
     /**

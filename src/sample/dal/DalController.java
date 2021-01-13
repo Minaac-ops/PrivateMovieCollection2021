@@ -30,7 +30,7 @@ public class DalController implements dalInterface {
      * @return The new category.
      */
     @Override
-    public Category addCategory(String name) {
+    public Category addCategory(String name) throws SQLException{
         return catrepo.createCategory(name);
     }
 
@@ -40,7 +40,7 @@ public class DalController implements dalInterface {
      * @param categoryToDelete The category to delete.
      */
     @Override
-    public void deleteCategory(Category categoryToDelete) {
+    public void deleteCategory(Category categoryToDelete) throws SQLException {
     catrepo.deleteCategory(categoryToDelete);
     }
 
@@ -87,7 +87,7 @@ public class DalController implements dalInterface {
      * @param movieToDelete The movie to delete.
      */
     @Override
-    public void deleteMovie(Movie movieToDelete) {
+    public void deleteMovie(Movie movieToDelete) throws SQLException {
         movierepo.deleteMovie(movieToDelete);
     }
 

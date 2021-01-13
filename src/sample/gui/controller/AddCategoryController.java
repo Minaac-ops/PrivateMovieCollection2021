@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import sample.gui.Model.CategoryModel;
@@ -46,12 +47,18 @@ public class AddCategoryController implements Initializable {
      * @throws IOException
      */
     @FXML
-    public void handleAddCatbtn(ActionEvent actionEvent) throws IOException {
+    public void handleAddCatbtn(ActionEvent actionEvent) throws IOException, SQLException {
         String name = txtName.getText().trim();
         categoryModel.addCategory(name);
         if (name != null && name.length() > 0 && name.length() < 20) {
             cancelNewCategory(actionEvent);
+        }try {
+            categoryModel.addCategory(name);
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
+
     }
 
     /**
@@ -63,8 +70,9 @@ public class AddCategoryController implements Initializable {
     public void cancelNewCategory(ActionEvent event) throws IOException {
         Parent Mainparent = FXMLLoader.load(getClass().getResource("/sample/gui/View/Main.fxml"));
         Scene Mainscene = new Scene(Mainparent);
-        Stage MainStage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        Stage MainStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         MainStage.setScene(Mainscene);
         MainStage.show();
     }
+
 }

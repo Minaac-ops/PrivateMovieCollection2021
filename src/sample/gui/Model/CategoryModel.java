@@ -33,7 +33,7 @@ public class CategoryModel {
      * Method for adding a category to the database
      * @param name
      */
-    public void addCategory(String name){
+    public void addCategory(String name) throws SQLException{
         Category category = logicfacade.addCategory(name);
         categories.add(category);
     }
@@ -42,7 +42,7 @@ public class CategoryModel {
      * Method for deleting a category in the database
      * @param categoryToDelete
      */
-    public void deleteCategory(Category categoryToDelete){
+    public void deleteCategory(Category categoryToDelete) throws SQLException{
         logicfacade.deleteCategory(categoryToDelete);
         categories.remove(categoryToDelete);
     }

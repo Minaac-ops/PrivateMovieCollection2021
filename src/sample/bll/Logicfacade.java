@@ -30,7 +30,7 @@ public interface Logicfacade {
      * Deletes a movie.
      * @param movie The movie to delete.
      */
-    void deleteMovie(Movie movie);
+    void deleteMovie(Movie movie) throws SQLException;
 
     /**
      * Lets you edit or add a rating.
@@ -43,13 +43,13 @@ public interface Logicfacade {
      * @param name The name of the new category
      * @return The new category.
      */
-    Category addCategory(String name);
+    Category addCategory(String name) throws SQLException;
 
     /**
      * Deletes a category.
      * @param category
      */
-    void deleteCategory(Category category);
+    void deleteCategory(Category category) throws SQLException;
 
     /**
      * Gets a list of all categories

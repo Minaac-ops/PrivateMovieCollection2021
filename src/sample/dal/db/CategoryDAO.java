@@ -47,7 +47,7 @@ public class CategoryDAO {
      * @param name Name of the category
      * @return
      */
-    public Category createCategory(String name)
+    public Category createCategory(String name) throws SQLException
     {
         String sql = "INSERT INTO Category(Name) VALUES(?);";
         try (Connection con = connectionPool.checkOut();
@@ -55,8 +55,6 @@ public class CategoryDAO {
             st.setString(1, name);
             st.addBatch();
             st.executeBatch();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
         }
         Category category = new Category(0, name);
         return category;
@@ -66,14 +64,12 @@ public class CategoryDAO {
      * Deleting a category from the database
      * @param categoryToDelete The category to delete
      */
-    public void deleteCategory(Category categoryToDelete) {
+    public void deleteCategory(Category categoryToDelete) throws SQLException{
         try (Connection con = connectionPool.checkOut()) {
             String query = "DELETE FROM Category WHERE CatId =?;";
             PreparedStatement st = con.prepareStatement(query);
             st.setInt(1, categoryToDelete.getID());
             st.execute();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
         }
     }
 
