@@ -225,7 +225,7 @@ public class MainController implements Initializable {
     {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Here's Johnny");
-        alert.setHeaderText("Houston, we have a problem");
+        alert.setHeaderText("Houston, we have a problem" + "You have not chosen a Genre");
         alert.showAndWait();
     }
 
