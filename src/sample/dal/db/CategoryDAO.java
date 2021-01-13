@@ -66,11 +66,15 @@ public class CategoryDAO {
      */
     public void deleteCategory(Category categoryToDelete) throws SQLException{
         try (Connection con = connectionPool.checkOut()) {
-            String query = "DELETE FROM Category WHERE CatId =?;";
-            PreparedStatement st = con.prepareStatement(query);
-            st.setInt(1, categoryToDelete.getID());
-            st.execute();
+
+            PreparedStatement st1 = con.prepareStatement("DELETE FROM CatMovie WHERE CategoryId = ?;");
+            st1.setInt(1, categoryToDelete.getID());
+
+            PreparedStatement st2 = con.prepareStatement("DELETE FROM Category WHERE CatId = ?;");
+            st2.setInt(1, categoryToDelete.getID());
+
+            st1.executeUpdate();
+            st2.executeUpdate();
         }
     }
-
 }

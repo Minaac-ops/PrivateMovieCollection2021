@@ -3,6 +3,7 @@ package sample.gui.Model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import sample.be.Category;
+import sample.be.Movie;
 import sample.bll.PMCManager;
 import sample.bll.Logicfacade;
 
