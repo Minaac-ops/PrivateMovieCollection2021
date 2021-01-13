@@ -49,12 +49,10 @@ public class AddCategoryController implements Initializable {
     @FXML
     public void handleAddCatbtn(ActionEvent actionEvent) throws IOException, SQLException {
         String name = txtName.getText().trim();
-        categoryModel.addCategory(name);
-        if (name != null && name.length() > 0 && name.length() < 20) {
-            cancelNewCategory(actionEvent);
-        }try {
-            categoryModel.addCategory(name);
-
+        try {
+            if (name.length() > 0) {
+                categoryModel.addCategory(name);
+            } else System.out.println("Choose a name!");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

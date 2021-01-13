@@ -197,8 +197,9 @@ public class MainController implements Initializable {
     public void handleDeleteCat(ActionEvent event) {
         Category categoryToDelete = lstCat.getSelectionModel().getSelectedItem();
         try {
-            categoryModel.deleteCategory(categoryToDelete);
-
+            if (categoryToDelete != null) {
+                categoryModel.deleteCategory(categoryToDelete);
+            }
         } catch (SQLException throwables) {
             displayError(throwables);
             throwables.printStackTrace();
@@ -228,7 +229,7 @@ public class MainController implements Initializable {
     {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Here's Johnny");
-        alert.setHeaderText("Houston, we have a problem" + "You have not chosen a Genre");
+        alert.setHeaderText("Houston, we have a problem! " + "You have not chosen a Genre");
         alert.showAndWait();
     }
 

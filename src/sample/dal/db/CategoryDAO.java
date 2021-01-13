@@ -24,7 +24,7 @@ public class CategoryDAO {
     /**
      * Gets a list of all categories from the database.
      *
-     * @return The list of all Movies.
+     * @return The list of all Categories.
      */
     public List<Category> getCategories() throws SQLException {
         List<Category> allCategories = new ArrayList<>();
@@ -43,9 +43,9 @@ public class CategoryDAO {
     }
 
     /**
-     * Adds a category to the list in the database
-     * @param name Name of the category
-     * @return
+     * Adds a new category to the database in the list of categories.
+     * @param name Name of the new category that you create.
+     * @return The new Category.
      */
     public Category createCategory(String name) throws SQLException
     {
