@@ -54,14 +54,12 @@ public class MovieModel {
      * Method for adding a movie to the database
      * @param name
      * @param year
-     * @param path
      * @param duration
      * @param rating
-     * @param lastView
      * @throws SQLException
      */
-    public void addMovie(String name, int year, String path, int duration, String rating, String lastView) throws SQLException {
-        Movie movie = logicfacade.addMovie(name, year, path, duration, rating, lastView);
+    public void addMovie(String name, int year, int duration, String rating) throws SQLException {
+        Movie movie = logicfacade.addMovie(name, year, duration, rating);
         allMovies.add(movie);
     }
 

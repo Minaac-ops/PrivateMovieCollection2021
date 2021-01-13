@@ -22,10 +22,9 @@ public interface Logicfacade {
      * @param year The releaseyear.
      * @param duration The duration in minutes.
      * @param rating The rating on the movie.
-     * @param path The link to the mp4 file.
      * @return A new movie.
      */
-    Movie addMovie(String name, int year, String path, int duration, String rating, String lastView) throws SQLException;
+    Movie addMovie(String name, int year, int duration, String rating) throws SQLException;
 
     /**
      * Deletes a movie.

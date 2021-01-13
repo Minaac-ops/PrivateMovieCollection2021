@@ -28,10 +28,6 @@ public class AddMovieController implements Initializable {
     public TextField movieDuration;
     @FXML
     public TextField movieRating;
-    @FXML
-    public TextField moviePath;
-    @FXML
-    public TextField lastViewField;
 
 
     private MovieModel movieModel;
@@ -60,11 +56,8 @@ public class AddMovieController implements Initializable {
         int year = Integer.parseInt(movieYear.getText().trim());
         int duration = Integer.parseInt(movieDuration.getText().trim());
         String rating = movieRating.getText().trim();
-        String path = moviePath.getText().trim();
-        String lastView = lastViewField.getText().trim();
 
-
-        movieModel.addMovie(name, year, path, duration, rating, lastView);
+        movieModel.addMovie(name, year, duration, rating);
 
         if (name != null && name.length() > 0 && name.length() < 100) {
             cancelNewMovie(event);

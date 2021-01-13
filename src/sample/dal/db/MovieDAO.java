@@ -51,32 +51,28 @@ public class MovieDAO
      * Adds a new movie to the database.
      * @param name
      * @param year
-     * @param path
      * @param duration
      * @param rating
-     * @param lastView
      * @return the new movie.
      */
-    public Movie addMovie(String name, int year, String path, int duration, String rating, String lastView) throws SQLException {
-        String sql = "INSERT INTO Movie (Name, Year, Duration, Rating, Filelink, LastView) VALUES (?,?,?,?,?,?);";
+    public Movie addMovie(String name, int year, int duration, String rating) throws SQLException {
+        String sql = "INSERT INTO Movie (Name, Year, Duration, Rating) VALUES (?,?,?,?);";
         try (Connection con = connectionPool.checkOut();
              PreparedStatement st = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             st.setString(1, name);
             st.setInt(2, year);
             st.setInt(3, duration);
             st.setString(4, rating);
-            st.setString(5, path);
-            st.setString(6, lastView);
 
             st.executeUpdate();
             ResultSet rs = st.getGeneratedKeys();
             int id = 0;
+            String path = null;
+            String lastView = null;
 
             if (rs.next()) {
                 id = rs.getInt(1);
             }
-
-            Category category = new Category(rs.getInt("CatId"), rs.getString("name"));
 
             Movie movie = new Movie(id, name, year, path, duration, rating, lastView);
             return movie;
@@ -114,8 +110,6 @@ public class MovieDAO
 
             st1.executeUpdate();
             st2.executeUpdate();
-
-
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

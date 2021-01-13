@@ -39,12 +39,11 @@ public class PMCManager implements Logicfacade {
      * @param year     The release year.
      * @param duration The duration in minutes.
      * @param rating   The rating on the movie.
-     * @param path The link to the mp4 file.
      * @return A new movie.
      */
     @Override
-    public Movie addMovie(String name, int year, String path, int duration, String rating, String lastView) throws SQLException {
-        return dalController.addMovie(name, year, path, duration, rating, lastView);
+    public Movie addMovie(String name, int year, int duration, String rating) throws SQLException {
+        return dalController.addMovie(name, year, duration, rating);
     }
 
     /**
@@ -111,9 +110,7 @@ public class PMCManager implements Logicfacade {
      */
     @Override
     public ObservableList<Movie> search(ObservableList<Movie> searchfilter, String query) {
-        ObservableList<Movie> foundMovies = FXCollections.observableArrayList();
-        foundMovies.addAll(movieSearcher.search(searchfilter, query));
-        return foundMovies;
+        return null;
     }
 
     /**

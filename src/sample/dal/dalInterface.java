@@ -37,15 +37,15 @@ public interface dalInterface {
     Category getCategory(int id);
 
     /**
-     * Adds a movie in the database.
      *
-     * @param name The name of the movie
-     * @param rating The rating of the movie
-     * @param path The name of the mp4 file.
-     * @param duration The duration of the movie in minutes.
-     * @return a movie object.
+     * @param name
+     * @param year
+     * @param duration
+     * @param rating
+     * @return
+     * @throws SQLException
      */
-    Movie addMovie(String name, int year, String path, int duration, String rating, String lastView) throws SQLException;
+    Movie addMovie(String name, int year, int duration, String rating) throws SQLException;
 
     /**
      * Deletes a movie from the database.
