@@ -22,8 +22,8 @@ public class MovieDAO
     }
 
     /**
-     * Gets all the movies
-     * @return Returns all the movies
+     * Gets all the movies from the database.
+     * @return Returns a list of all the movies from the database.
      * @throws SQLException
      */
     public List<Movie> getMovies() throws SQLException {
@@ -50,12 +50,13 @@ public class MovieDAO
     }
 
     /**
-     * Adds a new movie to the database.
-     * @param name
-     * @param year
-     * @param duration
-     * @param rating
-     * @return the new movie.
+     * Lets you add a new movie to the database.
+     * @param name The name of the movie that you want to add.
+     * @param year The year of the movie that you want to add.
+     * @param duration The duration of the movie that you want to add in minutes.
+     * @param rating The rating of the movie that you want to add. After you watch it, you can change/add this.
+     * @return The new movie that you just added to the database.
+     * @throws SQLException
      */
     public Movie addMovie(String name, int year, int duration, String rating) throws SQLException {
         String sql = "INSERT INTO Movie (Name, Year, Duration, Rating) VALUES (?,?,?,?);";
@@ -82,9 +83,9 @@ public class MovieDAO
     }
 
     /**
-     * Method for editing the rating of a specific movie
-     * @param id of the movie
-     * @param rating the new rating of the movie
+     * Method for editing the rating of a specific movie in the database.
+     * @param id of the movie that you want to rate.
+     * @param rating the new rating of the movie.
      * @throws SQLException
      * @throws IOException
      */
@@ -99,7 +100,7 @@ public class MovieDAO
     }
 
     /**
-     * Method for deleting a movie in the database
+     * Method for deleting a movie from the database.
      * @param movieToDelete The movie to delete
      */
     public void deleteMovie(Movie movieToDelete) throws SQLException {
@@ -151,7 +152,7 @@ public class MovieDAO
         List<Movie> oldMovies = new ArrayList<>();
         Connection con = connectionPool.checkOut();
         try (Statement statement = con.createStatement()) {
-            ResultSet rs = statement.executeQuery("SELECT * FROM Movie WHERE Lastview <= '2000-01-01';");
+            ResultSet rs = statement.executeQuery("SELECT * FROM Movie WHERE Lastview <= '2019-01-20';");
 
             while (rs.next()) {
                 int id = rs.getInt("movieId");

@@ -38,7 +38,6 @@ public class EditRatingController implements Initializable {
     private Label editLabel;
 
 
-
     public EditRatingController() throws IOException, SQLException {
         movieModel = new MovieModel();
     }
@@ -53,6 +52,7 @@ public class EditRatingController implements Initializable {
 
     /**
      * Method to handle the action that happens when you click to save the new rating
+     *
      * @param event
      * @throws IOException
      * @throws SQLException
@@ -61,21 +61,25 @@ public class EditRatingController implements Initializable {
     public void handleSaveRating(ActionEvent event) throws IOException, SQLException {
         int id = lstCatMov.getSelectionModel().getSelectedItem().getID();
         String rating = ratingField.getText().trim();
-        movieModel.editRating(id, rating);
-        editLabel.setText("You have changed rating on " + lstCatMov.getSelectionModel().getSelectedItem().getName() + "!");
+        if (rating != null) {
+            movieModel.editRating(id, rating);
+            editLabel.setText("You have changed rating on " + lstCatMov.getSelectionModel().getSelectedItem().getName() + "!");
+        } else if (rating == null) {
+            System.out.println("You have to rate a movie!");
+        }
     }
 
-    /**
-     * Method to handle the action that happens when you click the Cancel button
-     * @param event
-     * @throws IOException
-     */
-    @FXML
-    public void cancelEditRating(ActionEvent event) throws IOException {
-        Parent Mainparent = FXMLLoader.load(getClass().getResource("/sample/gui/View/Main.fxml"));
-        Scene Mainscene = new Scene(Mainparent);
-        Stage MainStage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        MainStage.setScene(Mainscene);
-        MainStage.show();
-    }
+        /**
+         * Method to handle the action that happens when you click the Cancel button
+         * @param event
+         * @throws IOException
+         */
+        @FXML
+        public void cancelEditRating (ActionEvent event) throws IOException {
+            Parent Mainparent = FXMLLoader.load(getClass().getResource("/sample/gui/View/Main.fxml"));
+            Scene Mainscene = new Scene(Mainparent);
+            Stage MainStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            MainStage.setScene(Mainscene);
+            MainStage.show();
+        }
 }

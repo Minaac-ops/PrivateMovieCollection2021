@@ -24,7 +24,7 @@ public class CategoryDAO {
     /**
      * Gets a list of all categories from the database.
      *
-     * @return The list of all Categories.
+     * @return The list of all Categories that are in the database.
      */
     public List<Category> getCategories() throws SQLException {
         List<Category> allCategories = new ArrayList<>();
@@ -44,8 +44,8 @@ public class CategoryDAO {
 
     /**
      * Adds a new category to the database in the list of categories.
-     * @param name Name of the new category that you create.
-     * @return The new Category.
+     * @param name Name of the new category that you create to the database.
+     * @return The new Category that you just added to the database.
      */
     public Category createCategory(String name) throws SQLException
     {
@@ -61,8 +61,8 @@ public class CategoryDAO {
     }
 
     /**
-     * Deleting a category from the database
-     * @param categoryToDelete The category to delete
+     * Deletes a category from the database.
+     * @param categoryToDelete The category that you want to delete from the database.
      */
     public void deleteCategory(Category categoryToDelete) throws SQLException{
         try (Connection con = connectionPool.checkOut()) {

@@ -18,9 +18,9 @@ public class CatMovDAO {
     }
 
     /**
-     * Method that lets you see the movie in a specific category
-     * @param catMovId the ID
-     * @return Returns the movies in the specific category
+     * Method that lets you see the movies in a specific category.
+     * @param catMovId the ID of the movies in a category.
+     * @return Returns the list of movies that are in the chosen category.
      * @throws SQLException
      */
     public List<Movie> getAllCatmovies(int catMovId) throws SQLException {
@@ -39,6 +39,12 @@ public class CatMovDAO {
         return newMovieList;
     }
 
+    /**
+     * Lets you add a category to a movie.
+     * @param movie The movie that you want to add a category to.
+     * @param category The category that you want on the movie.
+     * @throws SQLException
+     */
     public void addGenre(Movie movie, Category category) throws SQLException {
         String sql2 = "INSERT INTO CatMovie(CategoryId, MovieId) VALUES(?,?);";
         try (Connection con = connectionPool.checkOut();

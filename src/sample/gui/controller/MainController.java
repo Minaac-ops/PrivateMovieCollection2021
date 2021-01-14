@@ -8,7 +8,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -138,12 +137,16 @@ public class MainController implements Initializable {
      * @throws IOException
      */
     @FXML
-    public void clickAddMovie(ActionEvent event) throws IOException {
-        Parent MainParent = FXMLLoader.load(getClass().getResource("/sample/gui/View/AddMovie.fxml"));
-        Scene MainScene = new Scene(MainParent);
-        Stage addMovieStage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        addMovieStage.setScene(MainScene);
-        addMovieStage.show();
+    public void clickAddMovie(ActionEvent event) {
+        try {
+            Parent MainParent = FXMLLoader.load(getClass().getResource("/sample/gui/View/AddMovie.fxml"));
+            Scene MainScene = new Scene(MainParent);
+            Stage addMovieStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            addMovieStage.setScene(MainScene);
+            addMovieStage.show();
+        } catch (IOException ex) {
+            System.out.println("Couldn't open the window.");
+        }
     }
 
     /**
@@ -152,12 +155,16 @@ public class MainController implements Initializable {
      * @throws IOException
      */
     @FXML
-    public void clickAddCategory(ActionEvent event) throws IOException {
+    public void clickAddCategory(ActionEvent event) {
+        try {
         Parent MainParent = FXMLLoader.load(getClass().getResource("/sample/gui/View/addCatergory.fxml"));
         Scene MainScene = new Scene(MainParent);
         Stage addCategoryStage = (Stage)((Node) event.getSource()).getScene().getWindow();
         addCategoryStage.setScene(MainScene);
         addCategoryStage.show();
+    } catch (IOException ex) {
+            System.out.println("Couldn't open the window.");
+        }
     }
 
     /**
@@ -166,12 +173,17 @@ public class MainController implements Initializable {
      * @throws IOException
      */
     @FXML
-    public void handleEditRating(ActionEvent event) throws IOException {
-        Parent MainParent = FXMLLoader.load(getClass().getResource("/sample/gui/View/editRating.fxml"));
-        Scene Mainscene = new Scene(MainParent);
-        Stage editRatingStage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        editRatingStage.setScene(Mainscene);
-        editRatingStage.show();
+    public void handleEditRating(ActionEvent event) {
+        try {
+            Parent MainParent = FXMLLoader.load(getClass().getResource("/sample/gui/View/editRating.fxml"));
+            Scene Mainscene = new Scene(MainParent);
+            Stage editRatingStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            editRatingStage.setScene(Mainscene);
+            editRatingStage.show();
+        }catch (IOException ex) {
+            System.out.println("Couldn't connect to the next window because: ");
+        ex.printStackTrace();
+        }
     }
 
     /**
@@ -199,6 +211,8 @@ public class MainController implements Initializable {
         try {
             if (categoryToDelete != null) {
                 categoryModel.deleteCategory(categoryToDelete);
+            } else if (categoryToDelete == null) {
+                System.out.println("You have to choose a category to delete!");
             }
             else System.out.println("Choose a Genre to remove!");
         } catch (SQLException throwables) {
@@ -225,15 +239,20 @@ public class MainController implements Initializable {
         else System.out.println("Choose a movie to remove!");
     }
 
-
     @FXML
-    public void handleAddGenre(ActionEvent event) throws SQLException {
-        Category category = lstCat.getSelectionModel().getSelectedItem();
-        Movie movie = lstAllMovies.getSelectionModel().getSelectedItem();
-        if (movie != null && category != null) {
-            movieModel.addGenre(movie, category);
-            lstCatMov.getItems().add(movie);
+    public void handleAddGenre(ActionEvent event) {
+            Category category = lstCat.getSelectionModel().getSelectedItem();
+            Movie movie = lstAllMovies.getSelectionModel().getSelectedItem();
+            try {
+            if (movie != null && category != null) {
+                movieModel.addGenre(movie, category);
+                addGenreLabel.setText("'It's what you do right now that makes a difference.' - Struecker");
+                lstCatMov.getItems().add(movie);
+            } else if (movie == null || category == null) {
+                System.out.println("You have to pick a movie and genre first!");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
     }
 }
-
