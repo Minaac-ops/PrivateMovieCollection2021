@@ -21,8 +21,12 @@ public class AddCategoryController implements Initializable {
 
     private CategoryModel categoryModel;
 
-    public AddCategoryController() throws IOException, SQLException {
-        categoryModel = new CategoryModel();
+    public AddCategoryController(){
+        try {
+            categoryModel = new CategoryModel();
+        }catch (IOException | SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     
@@ -44,7 +48,6 @@ public class AddCategoryController implements Initializable {
     /**
      * Method to handle the action that happens when you click the Add genre button
      * @param actionEvent
-     * @throws IOException
      */
     @FXML
     public void handleAddCatbtn(ActionEvent actionEvent) {
@@ -56,27 +59,26 @@ public class AddCategoryController implements Initializable {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        try {
         if (name != null && name.length() > 0 && name.length() < 100) {
             cancelNewCategory(actionEvent);
-        }
-        } catch (IOException ex) {
-            ex.printStackTrace();
         }
     }
 
     /**
      * Method to handle the action that happens when you click the Cancel button
      * @param event
-     * @throws IOException
      */
     @FXML
-    public void cancelNewCategory(ActionEvent event) throws IOException {
-        Parent Mainparent = FXMLLoader.load(getClass().getResource("/sample/gui/View/Main.fxml"));
-        Scene Mainscene = new Scene(Mainparent);
-        Stage MainStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        MainStage.setScene(Mainscene);
-        MainStage.show();
+    public void cancelNewCategory(ActionEvent event) {
+        try {
+            Parent Mainparent = FXMLLoader.load(getClass().getResource("/sample/gui/View/Main.fxml"));
+            Scene Mainscene = new Scene(Mainparent);
+            Stage MainStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            MainStage.setScene(Mainscene);
+            MainStage.show();
+        }catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
 }

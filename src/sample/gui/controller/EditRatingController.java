@@ -79,7 +79,6 @@ public class EditRatingController implements Initializable {
         /**
          * Method to handle the action that happens when you click the Cancel button
          * @param event
-         * @throws IOException
          */
         @FXML
         public void cancelEditRating (ActionEvent event) {

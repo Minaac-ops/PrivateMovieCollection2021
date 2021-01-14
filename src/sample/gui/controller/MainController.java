@@ -139,7 +139,6 @@ public class MainController implements Initializable {
     /**
      * Method to handle the action that happens when you click the Add movie button
      * @param event
-     * @throws IOException
      */
     @FXML
     public void clickAddMovie(ActionEvent event) {
@@ -157,7 +156,6 @@ public class MainController implements Initializable {
     /**
      * Method to handle the action that happens when you click the Add category button
      * @param event
-     * @throws IOException
      */
     @FXML
     public void clickAddCategory(ActionEvent event) {
@@ -175,7 +173,6 @@ public class MainController implements Initializable {
     /**
      * Method to handle the action that happens when you click the Edit Rating button
      * @param event
-     * @throws IOException
      */
     @FXML
     public void handleEditRating(ActionEvent event) {

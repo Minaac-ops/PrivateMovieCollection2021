@@ -59,7 +59,6 @@ public class WarningController implements Initializable {
      * Method to handle the action that happens when you click the Ok button and deletes the bad movies
      *
      * @param event
-     * @throws IOException
      */
     @FXML
     public void handleDelete(ActionEvent event) {
@@ -89,7 +88,6 @@ public class WarningController implements Initializable {
      * Method to handle the action that happens when you click the cancel button to keep bad movies
      *
      * @param event
-     * @throws IOException
      */
     @FXML
     public void handleCancel(ActionEvent event) {
