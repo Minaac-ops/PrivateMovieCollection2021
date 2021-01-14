@@ -92,4 +92,13 @@ public class EditRatingController implements Initializable {
                 ex.printStackTrace();
             }
         }
+
+        public void okEditRating (ActionEvent event) throws IOException {
+            Parent Mainparent = FXMLLoader.load(getClass().getResource("/sample/gui/View/Main.fxml"));
+            Scene Mainscene = new Scene(Mainparent);
+            Stage MainStage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            MainStage.setScene(Mainscene);
+            MainStage.show();
+        }
+        
 }
