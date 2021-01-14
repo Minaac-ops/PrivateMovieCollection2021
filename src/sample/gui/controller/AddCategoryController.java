@@ -56,7 +56,9 @@ public class AddCategoryController implements Initializable {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
+        if (name != null && name.length() > 0 && name.length() < 100) {
+            cancelNewCategory(actionEvent);
+        }
     }
 
     /**
