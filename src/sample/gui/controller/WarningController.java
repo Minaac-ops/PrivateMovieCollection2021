@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
 
 public class WarningController implements Initializable {
 
-    public final MovieModel movieModel;
+    private MovieModel movieModel;
     private ObservableList<Movie> badMovies;
     private ObservableList<Movie> oldMovies;
 
@@ -35,8 +35,12 @@ public class WarningController implements Initializable {
     @FXML
     public TableColumn<Movie, String> oldNameColumn;
 
-    public WarningController() throws IOException, SQLException {
-        movieModel = new MovieModel();
+    public WarningController() {
+        try {
+            movieModel = new MovieModel();
+        } catch (IOException | SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     @Override
@@ -86,12 +90,17 @@ public class WarningController implements Initializable {
      * @throws IOException
      */
     @FXML
-    public void handleCancel(ActionEvent event) throws IOException {
-        Parent MainParent = FXMLLoader.load(getClass().getResource("/sample/gui/View/Main.fxml"));
-        Scene MainScene = new Scene(MainParent);
-        Stage MainStage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        MainStage.setScene(MainScene);
-        MainStage.show();
+    public void handleCancel(ActionEvent event) {
+        try {
+            Parent MainParent = FXMLLoader.load(getClass().getResource("/sample/gui/View/Main.fxml"));
+            Scene MainScene = new Scene(MainParent);
+            Stage MainStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            MainStage.setScene(MainScene);
+            MainStage.show();
+        } catch (IOException ex) {
+            System.out.println("Couldn't open the window because: ");
+            ex.printStackTrace();
+        }
     }
 }
 
