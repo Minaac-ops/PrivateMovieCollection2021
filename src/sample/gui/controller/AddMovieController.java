@@ -45,7 +45,7 @@ public class AddMovieController implements Initializable {
     }
 
     /**
-     * Method to handle the action that happens when you click the Add movie button
+     * Method to handle the action that happens when you click the Add movie button.
      * @param event
      */
     @FXML
@@ -68,7 +68,7 @@ public class AddMovieController implements Initializable {
     }
 
     /**
-     * Method to handle the action that happens when you click the Cancel button
+     * Method to handle the action that happens when you click the Cancel button.
      * @param event
      */
     @FXML

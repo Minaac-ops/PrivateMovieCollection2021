@@ -118,7 +118,7 @@ public class MovieDAO
 
 
     /**
-     * Gets a List of all movies that have a rating below 5.0
+     * Gets a List of all movies that have a rating below 5.0.
      * @return  the list of badMovies
      * @throws SQLException
      */

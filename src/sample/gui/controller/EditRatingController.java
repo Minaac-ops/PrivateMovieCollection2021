@@ -56,7 +56,7 @@ public class EditRatingController implements Initializable {
     }
 
     /**
-     * Method to handle the action that happens when you click to save the new rating
+     * Method to handle the action that happens when you click to save the new rating.
      *
      * @param event
      */
@@ -77,7 +77,7 @@ public class EditRatingController implements Initializable {
     }
 
         /**
-         * Method to handle the action that happens when you click the Cancel button
+         * Method to handle the action that happens when you click the Cancel button.
          * @param event
          */
         @FXML
@@ -94,6 +94,10 @@ public class EditRatingController implements Initializable {
             }
         }
 
+    /**
+     * Method to handle the action that happens when you click the OK button.
+     * @param event
+     */
         @FXML
         public void okEditRating (ActionEvent event) {
             try {

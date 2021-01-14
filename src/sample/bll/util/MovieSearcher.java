@@ -9,7 +9,7 @@ import java.util.List;
 public class MovieSearcher {
 
     /**
-     * Search function
+     * Search function.
      */
 
     public List<Movie> search(List<Movie> searchfilter, String query) {
@@ -23,14 +23,14 @@ public class MovieSearcher {
     }
 
     /**
-     * Search function for specific Movie name
+     * Search function for specific Movie name.
      */
     private boolean compareToMovieName(String query, Movie movie) {
         return movie.getName().toLowerCase().contains(query.toLowerCase());
     }
 
     /**
-     * Search function for specific Movie category
+     * Search function for specific Movie category.
      */
     private boolean compareToRating(String query, Movie movie) {
         return movie.getRating().toLowerCase().contains(query.toLowerCase());

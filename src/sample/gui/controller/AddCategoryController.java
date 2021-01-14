@@ -29,7 +29,6 @@ public class AddCategoryController implements Initializable {
         }
     }
 
-    
     @FXML
     public TextField txtName;
 
@@ -46,7 +45,7 @@ public class AddCategoryController implements Initializable {
     }
 
     /**
-     * Method to handle the action that happens when you click the Add genre button
+     * Method to handle the action that happens when you click the Add genre button.
      * @param actionEvent
      */
     @FXML
@@ -65,7 +64,7 @@ public class AddCategoryController implements Initializable {
     }
 
     /**
-     * Method to handle the action that happens when you click the Cancel button
+     * Method to handle the action that happens when you click the Cancel button.
      * @param event
      */
     @FXML

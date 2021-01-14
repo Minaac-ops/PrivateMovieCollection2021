@@ -93,7 +93,7 @@ public class PMCManager implements Logicfacade {
     }
 
     /**
-     * Gets a list of all categories
+     * Gets a list of all categories.
      *
      * @return A list of all categories.
      */

@@ -65,7 +65,7 @@ public class MovieModel {
     }
 
     /**
-     * Method to edit rating in the database
+     * Method for editing rating in the database
      * @param id
      * @param rating
      * @throws SQLException
@@ -85,7 +85,7 @@ public class MovieModel {
     }
 
     /**
-     * Method to get a list of the bad movies
+     * Method to get a list of bad movies
      * @return
      */
     public ObservableList<Movie> getBadMovies() {

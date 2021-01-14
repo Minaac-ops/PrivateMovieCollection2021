@@ -124,7 +124,7 @@ public class MainController implements Initializable {
     }
 
     /**
-     * Method to handle the action that happens when you click the category and the movies show up
+     * Method to handle the action that happens when you click the category and the movies show up.
      * @param event
      */
     @FXML
@@ -137,7 +137,7 @@ public class MainController implements Initializable {
     }
 
     /**
-     * Method to handle the action that happens when you click the Add movie button
+     * Method to handle the action that happens when you click the Add movie button.
      * @param event
      */
     @FXML
@@ -154,7 +154,26 @@ public class MainController implements Initializable {
     }
 
     /**
-     * Method to handle the action that happens when you click the Add category button
+     * Method to handle the action that happens when you click the delete movie button.
+     * @param event
+     */
+    @FXML
+    public void handleDeleteMovie(ActionEvent event) {
+        Movie movieToDelete = lstAllMovies.getSelectionModel().getSelectedItem();
+        if (movieToDelete != null){
+            try {
+                movieModel.deleteMovie(movieToDelete);
+                lstCatMov.getItems().remove(movieToDelete);
+
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+        else System.out.println("Choose a movie to remove!");
+    }
+
+    /**
+     * Method to handle the action that happens when you click the add new category button.
      * @param event
      */
     @FXML
@@ -171,40 +190,7 @@ public class MainController implements Initializable {
     }
 
     /**
-     * Method to handle the action that happens when you click the Edit Rating button
-     * @param event
-     */
-    @FXML
-    public void handleEditRating(ActionEvent event) {
-        try {
-            Parent MainParent = FXMLLoader.load(getClass().getResource("/sample/gui/View/editRating.fxml"));
-            Scene Mainscene = new Scene(MainParent);
-            Stage editRatingStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            editRatingStage.setScene(Mainscene);
-            editRatingStage.show();
-        }catch (IOException ex) {
-            System.out.println("Couldn't connect to the next window because: ");
-        ex.printStackTrace();
-        }
-    }
-
-    /**
-     * Method to handle the action that happens when you click the search button
-     * @param event
-     */
-    @FXML
-    public void handleSearchMovie(ActionEvent event) {
-        if (searchMovieTxt.getText() == null || searchMovieTxt.getText().length() <= 0 ) {
-            lstAllMovies.setItems(movieModel.getAllMovies());
-        }
-        else {
-            ObservableList<Movie> foundMovie = movieModel.search(movieModel.getAllMovies(), searchMovieTxt.getText());
-            lstAllMovies.setItems(foundMovie);
-        }
-    }
-
-    /**
-     * Method to handle the action that happens when you click the delete category button
+     * Method to handle the action that happens when you click the delete category button.
      * @param event
      */
     @FXML
@@ -222,25 +208,45 @@ public class MainController implements Initializable {
         }
     }
 
+
     /**
-     * Method to handle the action that happens when you click the delete movie button
+     * Method to handle the action that happens when you click the Edit Rating button.
      * @param event
      */
     @FXML
-    public void handleDeleteMovie(ActionEvent event) {
-        Movie movieToDelete = lstAllMovies.getSelectionModel().getSelectedItem();
-        if (movieToDelete != null){
-            try {
-                movieModel.deleteMovie(movieToDelete);
-                lstCatMov.getItems().remove(movieToDelete);
-                
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
-    }
-        else System.out.println("Choose a movie to remove!");
+    public void handleEditRating(ActionEvent event) {
+        try {
+            Parent MainParent = FXMLLoader.load(getClass().getResource("/sample/gui/View/editRating.fxml"));
+            Scene Mainscene = new Scene(MainParent);
+            Stage editRatingStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            editRatingStage.setScene(Mainscene);
+            editRatingStage.show();
+        }catch (IOException ex) {
+            System.out.println("Couldn't connect to the next window because: ");
+        ex.printStackTrace();
+        }
     }
 
+    /**
+     * Method to handle the action that happens when you click the search button.
+     * @param event
+     */
+    @FXML
+    public void handleSearchMovie(ActionEvent event) {
+        if (searchMovieTxt.getText() == null || searchMovieTxt.getText().length() <= 0 ) {
+            lstAllMovies.setItems(movieModel.getAllMovies());
+        }
+        else {
+            ObservableList<Movie> foundMovie = movieModel.search(movieModel.getAllMovies(), searchMovieTxt.getText());
+            lstAllMovies.setItems(foundMovie);
+        }
+    }
+
+
+    /**
+     * Method to handle the action that happens when you click the add genre button.
+     * @param event
+     */
     @FXML
     public void handleAddGenre(ActionEvent event) {
             Category category = lstCat.getSelectionModel().getSelectedItem();
