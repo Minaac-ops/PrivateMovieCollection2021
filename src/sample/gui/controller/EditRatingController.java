@@ -38,7 +38,7 @@ public class EditRatingController implements Initializable {
     private Label editLabel;
 
 
-    public EditRatingController() throws IOException, SQLException {
+    public EditRatingController(){
         try {
             movieModel = new MovieModel();
         } catch ( IOException | SQLException ex) {
@@ -59,18 +59,20 @@ public class EditRatingController implements Initializable {
      * Method to handle the action that happens when you click to save the new rating
      *
      * @param event
-     * @throws IOException
-     * @throws SQLException
      */
     @FXML
-    public void handleSaveRating(ActionEvent event) throws IOException, SQLException {
-        int id = lstCatMov.getSelectionModel().getSelectedItem().getID();
-        String rating = ratingField.getText().trim();
-        if (rating != null) {
-            movieModel.editRating(id, rating);
-            editLabel.setText("You have changed rating on " + lstCatMov.getSelectionModel().getSelectedItem().getName() + "!");
-        } else if (rating == null) {
-            System.out.println("You have to rate a movie!");
+    public void handleSaveRating(ActionEvent event) {
+        try {
+            int id = lstCatMov.getSelectionModel().getSelectedItem().getID();
+            String rating = ratingField.getText().trim();
+            if (rating != null) {
+                movieModel.editRating(id, rating);
+                editLabel.setText("You have changed rating on " + lstCatMov.getSelectionModel().getSelectedItem().getName() + "!");
+            } else if (rating == null) {
+                System.out.println("You have to rate a movie!");
+            }
+        } catch (IOException | SQLException ex) {
+            ex.printStackTrace();
         }
     }
 
@@ -93,12 +95,16 @@ public class EditRatingController implements Initializable {
             }
         }
 
-        public void okEditRating (ActionEvent event) throws IOException {
-            Parent Mainparent = FXMLLoader.load(getClass().getResource("/sample/gui/View/Main.fxml"));
-            Scene Mainscene = new Scene(Mainparent);
-            Stage MainStage = (Stage)((Node) event.getSource()).getScene().getWindow();
-            MainStage.setScene(Mainscene);
-            MainStage.show();
+        @FXML
+        public void okEditRating (ActionEvent event) {
+            try {
+                Parent Mainparent = FXMLLoader.load(getClass().getResource("/sample/gui/View/Main.fxml"));
+                Scene Mainscene = new Scene(Mainparent);
+                Stage MainStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                MainStage.setScene(Mainscene);
+                MainStage.show();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         }
-        
 }

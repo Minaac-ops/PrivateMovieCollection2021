@@ -105,6 +105,7 @@ public class WarningController implements Initializable {
         }
     }
 
+    @FXML
     public void handleOK(ActionEvent event) {
         try {
             Parent MainParent = FXMLLoader.load(getClass().getResource("/sample/gui/View/Main.fxml"));

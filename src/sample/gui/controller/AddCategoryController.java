@@ -47,7 +47,7 @@ public class AddCategoryController implements Initializable {
      * @throws IOException
      */
     @FXML
-    public void handleAddCatbtn(ActionEvent actionEvent) throws IOException, SQLException {
+    public void handleAddCatbtn(ActionEvent actionEvent) {
         String name = txtName.getText().trim();
         try {
             if (name.length() > 0) {
@@ -56,8 +56,12 @@ public class AddCategoryController implements Initializable {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        try {
         if (name != null && name.length() > 0 && name.length() < 100) {
             cancelNewCategory(actionEvent);
+        }
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
     }
 
