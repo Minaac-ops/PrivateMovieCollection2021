@@ -102,6 +102,14 @@ public class WarningController implements Initializable {
             ex.printStackTrace();
         }
     }
+
+    public void handleOK(ActionEvent event) throws IOException {
+        Parent MainParent = FXMLLoader.load(getClass().getResource("/sample/gui/View/Main.fxml"));
+        Scene MainScene = new Scene(MainParent);
+        Stage MainStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        MainStage.setScene(MainScene);
+        MainStage.show();
+    }
 }
 
 
