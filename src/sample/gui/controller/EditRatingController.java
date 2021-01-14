@@ -39,7 +39,12 @@ public class EditRatingController implements Initializable {
 
 
     public EditRatingController() throws IOException, SQLException {
-        movieModel = new MovieModel();
+        try {
+            movieModel = new MovieModel();
+        } catch ( IOException | SQLException ex) {
+            ex.printStackTrace();
+        }
+
     }
 
     @Override
@@ -75,11 +80,16 @@ public class EditRatingController implements Initializable {
          * @throws IOException
          */
         @FXML
-        public void cancelEditRating (ActionEvent event) throws IOException {
-            Parent Mainparent = FXMLLoader.load(getClass().getResource("/sample/gui/View/Main.fxml"));
-            Scene Mainscene = new Scene(Mainparent);
-            Stage MainStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            MainStage.setScene(Mainscene);
-            MainStage.show();
+        public void cancelEditRating (ActionEvent event) {
+            try {
+                Parent Mainparent = FXMLLoader.load(getClass().getResource("/sample/gui/View/Main.fxml"));
+                Scene Mainscene = new Scene(Mainparent);
+                Stage MainStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                MainStage.setScene(Mainscene);
+                MainStage.show();
+            } catch (IOException ex) {
+                System.out.println("Couldn't open the window because: ");
+                ex.printStackTrace();
+            }
         }
 }

@@ -31,10 +31,10 @@ import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
 
-    public final MovieModel movieModel;
+    private MovieModel movieModel;
     private ObservableList<Movie> movieObservableList;
 
-    public final CategoryModel categoryModel;
+    private CategoryModel categoryModel;
     private ObservableList<Category> observableListCategory;
 
 
@@ -60,9 +60,14 @@ public class MainController implements Initializable {
     @FXML
     public Label addGenreLabel;
 
-    public MainController() throws IOException, SQLException {
-        categoryModel = new CategoryModel();
-        movieModel = new MovieModel();
+    public MainController(){
+        try {
+            categoryModel = new CategoryModel();
+            movieModel = new MovieModel();
+        } catch (IOException | SQLException ex) {
+            ex.printStackTrace();
+        }
+
     }
 
 
