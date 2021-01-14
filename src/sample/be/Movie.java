@@ -42,11 +42,6 @@ public class Movie {
         this.id = id;
     }
 
-    public int getCatMovId()
-    {
-        return catMovId;
-    }
-
     public void setCatMovId(int catMovId) {
         this.catMovId = catMovId;
     }
@@ -80,11 +75,6 @@ public class Movie {
         return url + path;
     }
 
-    public void setPath(String path)
-    {
-        this.path = path;
-    }
-
     public int getDuration()
     {
         return duration;
@@ -103,10 +93,5 @@ public class Movie {
     public void setRating(String rating)
     {
         this.rating = rating;
-    }
-
-    public String getLastView()
-    {
-        return lastView;
     }
 }
