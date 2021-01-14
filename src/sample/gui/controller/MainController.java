@@ -200,8 +200,8 @@ public class MainController implements Initializable {
             if (categoryToDelete != null) {
                 categoryModel.deleteCategory(categoryToDelete);
             }
+            else System.out.println("Choose a Genre to remove!");
         } catch (SQLException throwables) {
-            displayError(throwables);
             throwables.printStackTrace();
         }
     }
@@ -213,25 +213,18 @@ public class MainController implements Initializable {
     @FXML
     public void handleDeleteMovie(ActionEvent event) {
         Movie movieToDelete = lstAllMovies.getSelectionModel().getSelectedItem();
-        if (movieToDelete != null)
-        try {
-        movieModel.deleteMovie(movieToDelete);
-        lstCatMov.getItems().remove(movieToDelete);
-        }
-        catch (SQLException throwables) {
-            displayError(throwables);
-            throwables.printStackTrace();
-        }
-        else System.out.println("You have to Choose a movie to delete!");
+        if (movieToDelete != null){
+            try {
+                movieModel.deleteMovie(movieToDelete);
+                lstCatMov.getItems().remove(movieToDelete);
+                
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+    }
+        else System.out.println("Choose a movie to remove!");
     }
 
-    public void displayError(Throwable throwable)
-    {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Here's Johnny");
-        alert.setHeaderText("Houston, we have a problem! " + "You have not chosen a Genre");
-        alert.showAndWait();
-    }
 
     @FXML
     public void handleAddGenre(ActionEvent event) throws SQLException {
@@ -239,7 +232,6 @@ public class MainController implements Initializable {
         Movie movie = lstAllMovies.getSelectionModel().getSelectedItem();
         if (movie != null && category != null) {
             movieModel.addGenre(movie, category);
-            addGenreLabel.setText("'It's what you do right now that makes a difference.' - Struecker");
             lstCatMov.getItems().add(movie);
         }
     }
