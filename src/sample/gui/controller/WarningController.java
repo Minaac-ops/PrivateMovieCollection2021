@@ -29,7 +29,7 @@ public class WarningController implements Initializable {
     @FXML
     public TableView<Movie> lstBadMovies;
     @FXML
-    public TableColumn<Movie,String> badNameColumn;
+    public TableColumn<Movie, String> badNameColumn;
     @FXML
     public TableView<Movie> lstOldMovies;
     @FXML
@@ -57,6 +57,7 @@ public class WarningController implements Initializable {
 
     /**
      * Method to handle the action that happens when you click the Ok button and deletes the bad movies
+     *
      * @param event
      * @throws IOException
      */
@@ -66,26 +67,27 @@ public class WarningController implements Initializable {
         Movie oldMovie = lstOldMovies.getSelectionModel().getSelectedItem();
 
         if (badMovie != null && oldMovie == null)
-        try {
-            movieModel.deleteMovie(badMovie);
-            lstBadMovies.getItems().remove(badMovie);
+            try {
+                movieModel.deleteMovie(badMovie);
+                lstBadMovies.getItems().remove(badMovie);
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
         else if (badMovie == null && oldMovie != null)
-        try{
-            movieModel.deleteMovie(oldMovie);
-            lstOldMovies.getItems().remove(oldMovie);
+            try {
+                movieModel.deleteMovie(oldMovie);
+                lstOldMovies.getItems().remove(oldMovie);
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
         else System.out.println("You have to choose a movie to delete first.");
     }
 
     /**
      * Method to handle the action that happens when you click the cancel button to keep bad movies
+     *
      * @param event
      * @throws IOException
      */
@@ -103,12 +105,16 @@ public class WarningController implements Initializable {
         }
     }
 
-    public void handleOK(ActionEvent event) throws IOException {
-        Parent MainParent = FXMLLoader.load(getClass().getResource("/sample/gui/View/Main.fxml"));
-        Scene MainScene = new Scene(MainParent);
-        Stage MainStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        MainStage.setScene(MainScene);
-        MainStage.show();
+    public void handleOK(ActionEvent event) {
+        try {
+            Parent MainParent = FXMLLoader.load(getClass().getResource("/sample/gui/View/Main.fxml"));
+            Scene MainScene = new Scene(MainParent);
+            Stage MainStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            MainStage.setScene(MainScene);
+            MainStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 
