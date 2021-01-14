@@ -57,7 +57,7 @@ public class WarningController implements Initializable {
      * @throws IOException
      */
     @FXML
-    public void handleOk(ActionEvent event) {
+    public void handleDelete(ActionEvent event) {
         Movie badMovie = lstBadMovies.getSelectionModel().getSelectedItem();
         Movie oldMovie = lstOldMovies.getSelectionModel().getSelectedItem();
 
