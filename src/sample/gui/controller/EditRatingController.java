@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import sample.be.Movie;
+import sample.bll.util.UserError;
 import sample.gui.Model.MovieModel;
 
 import java.io.IOException;
@@ -24,6 +25,7 @@ import java.util.ResourceBundle;
 
 public class EditRatingController implements Initializable {
 
+    private final String ERROR_HEADER = "Houston, we have a problem!";
     private MovieModel movieModel;
     private ObservableList<Movie> movieObservableList;
 
@@ -42,7 +44,7 @@ public class EditRatingController implements Initializable {
         try {
             movieModel = new MovieModel();
         } catch ( IOException | SQLException ex) {
-            ex.printStackTrace();
+            UserError.displayError(ERROR_HEADER,ex.getMessage());
         }
 
     }
@@ -68,11 +70,12 @@ public class EditRatingController implements Initializable {
             if (rating != null) {
                 movieModel.editRating(id, rating);
                 editLabel.setText("You have changed rating on " + lstCatMov.getSelectionModel().getSelectedItem().getName() + "!");
-            } else if (rating == null) {
-                System.out.println("You have to rate a movie!");
+            } else if(rating == null) {
+                String message = "You have to rate a Movie";
+                UserError.displayError(ERROR_HEADER,message);
             }
         } catch (IOException | SQLException ex) {
-            ex.printStackTrace();
+            UserError.displayError(ERROR_HEADER,ex.getMessage());
         }
     }
 
@@ -89,8 +92,7 @@ public class EditRatingController implements Initializable {
                 MainStage.setScene(Mainscene);
                 MainStage.show();
             } catch (IOException ex) {
-                System.out.println("Couldn't open the window because: ");
-                ex.printStackTrace();
+                UserError.displayError(ERROR_HEADER,ex.getMessage());
             }
         }
 
@@ -107,7 +109,7 @@ public class EditRatingController implements Initializable {
                 MainStage.setScene(Mainscene);
                 MainStage.show();
             } catch (IOException ex) {
-                ex.printStackTrace();
+                UserError.displayError(ERROR_HEADER,ex.getMessage());
             }
         }
 }

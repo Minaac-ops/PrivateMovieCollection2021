@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import sample.Main;
+import sample.bll.util.UserError;
 import sample.gui.Model.MovieModel;
 
 import java.io.IOException;
@@ -19,6 +20,8 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AddMovieController implements Initializable {
+
+    private final String ERROR_HEADER = "Houston, we have a problem!";
 
     @FXML
     public TextField nameMovie;
@@ -32,14 +35,15 @@ public class AddMovieController implements Initializable {
 
     private MovieModel movieModel;
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             movieModel = new MovieModel();
         } catch (IOException e) {
-            e.printStackTrace();
+            UserError.displayError(ERROR_HEADER,e.getMessage());
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            UserError.displayError(ERROR_HEADER,throwables.getMessage());
         }
 
     }
@@ -61,9 +65,10 @@ public class AddMovieController implements Initializable {
 
             if (name != null && name.length() > 0 && name.length() < 100) {
                 cancelNewMovie(event);
-            } else System.out.println("Type info on the movie you want to add");
+            }
+
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            UserError.displayError(ERROR_HEADER,ex.getMessage());
         }
     }
 
@@ -80,7 +85,7 @@ public class AddMovieController implements Initializable {
             MainStage.setScene(Mainscene);
             MainStage.show();
         }catch (IOException ex) {
-            ex.printStackTrace();
+            UserError.displayError(ERROR_HEADER,ex.getMessage());
         }
     }
 }

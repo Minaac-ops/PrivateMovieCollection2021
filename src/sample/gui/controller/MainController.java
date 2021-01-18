@@ -18,6 +18,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import sample.be.Category;
 import sample.be.Movie;
+import sample.bll.util.UserError;
 import sample.gui.Model.CategoryModel;
 import sample.gui.Model.MovieModel;
 
@@ -30,6 +31,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
+
+    private final String ERROR_HEADER = "Houston, we have a problem!";
 
     private MovieModel movieModel;
     private ObservableList<Movie> movieObservableList;
@@ -65,7 +68,7 @@ public class MainController implements Initializable {
             categoryModel = new CategoryModel();
             movieModel = new MovieModel();
         } catch (IOException | SQLException ex) {
-            ex.printStackTrace();
+            UserError.displayError(ERROR_HEADER,ex.getMessage());
         }
 
     }
@@ -98,10 +101,11 @@ public class MainController implements Initializable {
                     if (f.isFile() && !f.isDirectory()) {
                         Desktop.getDesktop().open(f);
                     } else {
-                        System.out.println("File not found: " + clickedMovie.getPath());
+                        String message = "File not found: " + clickedMovie.getPath();
+                        UserError.displayError(ERROR_HEADER,message);
                     }
                 } catch(IOException e) {
-                    e.printStackTrace();
+                    UserError.displayError(ERROR_HEADER,e.getMessage());
                 }
             }
         });
@@ -114,10 +118,11 @@ public class MainController implements Initializable {
                     if (f.isFile() && !f.isDirectory()) {
                         Desktop.getDesktop().open(f);
                     } else {
-                        System.out.println("File not found: " + clickedMovie.getPath());
+                        String message = "File not found: " + clickedMovie.getPath();
+                        UserError.displayError(ERROR_HEADER,message);
                     }
                 } catch(IOException e) {
-                    e.printStackTrace();
+                    UserError.displayError(ERROR_HEADER,e.getMessage());
                 }
             }
         });
@@ -149,7 +154,7 @@ public class MainController implements Initializable {
             addMovieStage.setScene(MainScene);
             addMovieStage.show();
         } catch (IOException ex) {
-            System.out.println("Couldn't open the window.");
+            UserError.displayError(ERROR_HEADER,ex.getMessage());
         }
     }
 
@@ -160,17 +165,18 @@ public class MainController implements Initializable {
     @FXML
     public void handleDeleteMovie(ActionEvent event) {
         Movie movieToDelete = lstAllMovies.getSelectionModel().getSelectedItem();
-        if (movieToDelete != null){
-            try {
+        try {
+            if (movieToDelete != null) {
                 movieModel.deleteMovie(movieToDelete);
                 lstCatMov.getItems().remove(movieToDelete);
-
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
+            } else if (movieToDelete == null) {
+                String message = "Choose a movie to remove";
+                UserError.displayError(ERROR_HEADER, message);
             }
+                } catch (SQLException throwables) {
+                    UserError.displayError(ERROR_HEADER,throwables.getMessage());
+                }
         }
-        else System.out.println("Choose a movie to remove!");
-    }
 
     /**
      * Method to handle the action that happens when you click the add new category button.
@@ -185,7 +191,7 @@ public class MainController implements Initializable {
         addCategoryStage.setScene(MainScene);
         addCategoryStage.show();
     } catch (IOException ex) {
-            System.out.println("Couldn't open the window.");
+            UserError.displayError(ERROR_HEADER,ex.getMessage());
         }
     }
 
@@ -200,11 +206,11 @@ public class MainController implements Initializable {
             if (categoryToDelete != null) {
                 categoryModel.deleteCategory(categoryToDelete);
             } else if (categoryToDelete == null) {
-                System.out.println("You have to choose a category to delete!");
+                String message = "You have to choose a category to delete";
+                UserError.displayError(ERROR_HEADER,message);
             }
-            else System.out.println("Choose a Genre to remove!");
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            UserError.displayError(ERROR_HEADER,throwables.getMessage());
         }
     }
 
@@ -222,8 +228,7 @@ public class MainController implements Initializable {
             editRatingStage.setScene(Mainscene);
             editRatingStage.show();
         }catch (IOException ex) {
-            System.out.println("Couldn't connect to the next window because: ");
-        ex.printStackTrace();
+            UserError.displayError(ERROR_HEADER,ex.getMessage());
         }
     }
 
@@ -254,13 +259,13 @@ public class MainController implements Initializable {
             try {
             if (movie != null && category != null) {
                 movieModel.addGenre(movie, category);
-                addGenreLabel.setText("'It's what you do right now that makes a difference.' - Struecker");
                 lstCatMov.getItems().add(movie);
             } else if (movie == null || category == null) {
-                System.out.println("You have to pick a movie and genre first!");
+                String message = "You have to pick a movie and genre first!";
+                UserError.displayError(ERROR_HEADER,message);
             }
         } catch (SQLException ex) {
-            ex.printStackTrace();
+                UserError.displayError(ERROR_HEADER, ex.getMessage());
         }
     }
 }

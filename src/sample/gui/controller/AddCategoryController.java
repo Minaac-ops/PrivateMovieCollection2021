@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import sample.bll.util.UserError;
 import sample.gui.Model.CategoryModel;
 
 import java.io.IOException;
@@ -19,13 +20,14 @@ import java.util.ResourceBundle;
 
 public class AddCategoryController implements Initializable {
 
+    private final String ERROR_HEADER = "Houston, we have a problem!";
     private CategoryModel categoryModel;
 
     public AddCategoryController(){
         try {
             categoryModel = new CategoryModel();
         }catch (IOException | SQLException ex) {
-            ex.printStackTrace();
+            UserError.displayError(ERROR_HEADER,ex.getMessage());
         }
     }
 
@@ -37,9 +39,9 @@ public class AddCategoryController implements Initializable {
         try {
             categoryModel = new CategoryModel();
         } catch (IOException e) {
-            e.printStackTrace();
+            UserError.displayError(ERROR_HEADER,e.getMessage());
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            UserError.displayError(ERROR_HEADER,throwables.getMessage());
         }
 
     }
@@ -54,9 +56,10 @@ public class AddCategoryController implements Initializable {
         try {
             if (name.length() > 0) {
                 categoryModel.addCategory(name);
-            } else System.out.println("Choose a name!");
+            } String message = "Choose a Name";
+            UserError.displayError(ERROR_HEADER,message);
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            UserError.displayError(ERROR_HEADER,throwables.getMessage());
         }
         if (name != null && name.length() > 0 && name.length() < 100) {
             cancelNewCategory(actionEvent);
@@ -76,7 +79,7 @@ public class AddCategoryController implements Initializable {
             MainStage.setScene(Mainscene);
             MainStage.show();
         }catch (IOException ex) {
-            ex.printStackTrace();
+            UserError.displayError(ERROR_HEADER,ex.getMessage());
         }
     }
 

@@ -13,6 +13,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import sample.be.Movie;
+import sample.bll.util.UserError;
 import sample.gui.Model.MovieModel;
 
 import java.io.IOException;
@@ -21,6 +22,8 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class WarningController implements Initializable {
+
+    private final String ERROR_HEADER = "Houston, we have a problem!";
 
     private MovieModel movieModel;
     private ObservableList<Movie> badMovies;
@@ -71,17 +74,17 @@ public class WarningController implements Initializable {
                 lstBadMovies.getItems().remove(badMovie);
 
             } catch (SQLException throwables) {
-                throwables.printStackTrace();
+                UserError.displayError(ERROR_HEADER,throwables.getMessage());
             }
-        else if (badMovie == null && oldMovie != null)
+        else if (badMovie == null && oldMovie != null){
+        }
             try {
                 movieModel.deleteMovie(oldMovie);
                 lstOldMovies.getItems().remove(oldMovie);
 
             } catch (SQLException throwables) {
-                throwables.printStackTrace();
+                UserError.displayError(ERROR_HEADER,throwables.getMessage());
             }
-        else System.out.println("You have to choose a movie to delete first.");
     }
 
     /**
@@ -97,8 +100,7 @@ public class WarningController implements Initializable {
             MainStage.setScene(MainScene);
             MainStage.show();
         } catch (IOException ex) {
-            System.out.println("Couldn't open the window because: ");
-            ex.printStackTrace();
+            UserError.displayError(ERROR_HEADER,ex.getMessage());
         }
     }
 
@@ -116,7 +118,7 @@ public class WarningController implements Initializable {
             MainStage.setScene(MainScene);
             MainStage.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            UserError.displayError(ERROR_HEADER,e.getMessage());
         }
     }
 }
